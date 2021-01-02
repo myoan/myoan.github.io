@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yoan.log</title>
+    <link>https://myoan.github.io/</link>
+    <description>Recent content on yoan.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 01 Jan 2021 14:10:18 +0900</lastBuildDate><atom:link href="https://myoan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ブログの確認</title>
+      <link>https://myoan.github.io/posts/my-first-post/</link>
+      <pubDate>Fri, 01 Jan 2021 14:10:18 +0900</pubDate>
+      
+      <guid>https://myoan.github.io/posts/my-first-post/</guid>
+      <description>hogehoge hello world
+languages:
+ ruby golang csharp  </description>
+    </item>
+    
+  </channel>
+</rss>
