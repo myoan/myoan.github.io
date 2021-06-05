@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vscode on yoan.log</title><link>https://blog.yoanm.tk/tags/vscode/</link><description>Recent content in vscode on yoan.log</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 19 Apr 2021 09:07:06 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>vscode extensionのTreeViewを触ってみる</title><link>https://blog.yoanm.tk/posts/vscode-tree-view/</link><pubDate>Mon, 19 Apr 2021 09:07:06 +0900</pubDate><guid>https://blog.yoanm.tk/posts/vscode-tree-view/</guid><description>チュートリアルを行う https://code.visualstudio.com/api/extension-guides/tree-view
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>vscode on yoan.log</title>
+    <link>https://blog.yoanm.tk/tags/vscode/</link>
+    <description>Recent content in vscode on yoan.log</description>
+    <image>
+      <url>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Apr 2021 09:07:06 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vscode extensionのTreeViewを触ってみる</title>
+      <link>https://blog.yoanm.tk/posts/vscode-tree-view/</link>
+      <pubDate>Mon, 19 Apr 2021 09:07:06 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/vscode-tree-view/</guid>
+      <description>チュートリアルを行う https://code.visualstudio.com/api/extension-guides/tree-view
 チュートリアルではサイドバーにnode dependenciesを表示し、各packageのpackage.jsonを表示するサンプルを作っている。 しかしチュートリアルをそのまま試してもEditorにpackage.jsonの内容が表示されなかった。
 その理由が知りたくて色々と調査した
 結果として、githubのサンプルを実行するとわかるが、クリック時に発火するコマンドを指定しないと行けなかった
@@ -9,4 +27,8 @@ TreeItemオブジェクトはcommandをフィールドに保存しているが�
 vscode本体をコードリーディング TreeItemの定義はこちら command自体は存在している よって、vscode本体でTreeItem.commandを呼び出す仮説は正しそう
 https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts#L9136
 この説明を見るに、clickをフックしてcommandを呼んでいる模様。
-async resolveTreeItem(treeItemHandle: string, token: vscode.CancellationToken): Promise&amp;lt;ITreeItem | undefined&amp;gt; { if (!this.dataProvider.resolveTreeItem) { return; } const element = this.elements.get(treeItemHandle); if (element) { const node = this.nodes.get(element); if (node) { const resolve = await this.dataProvider.resolveTreeItem(node.extensionItem, element, token) ?</description></item></channel></rss>
+async resolveTreeItem(treeItemHandle: string, token: vscode.CancellationToken): Promise&amp;lt;ITreeItem | undefined&amp;gt; { if (!this.dataProvider.resolveTreeItem) { return; } const element = this.elements.get(treeItemHandle); if (element) { const node = this.nodes.get(element); if (node) { const resolve = await this.dataProvider.resolveTreeItem(node.extensionItem, element, token) ?</description>
+    </item>
+    
+  </channel>
+</rss>

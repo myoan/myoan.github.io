@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>git on yoan.log</title><link>https://blog.yoanm.tk/tags/git/</link><description>Recent content in git on yoan.log</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Fri, 08 Jan 2021 20:48:37 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>git restoreってなんだ</title><link>https://blog.yoanm.tk/posts/git-restore/</link><pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate><guid>https://blog.yoanm.tk/posts/git-restore/</guid><description>不適切なファイルをgit addしてしまいました
-weblog % git add content/posts/git-restore.md weblog % git status On branch main Your branch is up to date with 'origin/main'. Changes to be committed: (use &amp;quot;git restore --staged &amp;lt;file&amp;gt;...&amp;quot; to unstage) new file: content/posts/git-restore.md こういった場合 git reset &amp;lt;FILE&amp;gt;を使ってunstagedにしていました
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>git on yoan.log</title>
+    <link>https://blog.yoanm.tk/tags/git/</link>
+    <description>Recent content in git on yoan.log</description>
+    <image>
+      <url>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 08 Jan 2021 20:48:37 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git restoreってなんだ</title>
+      <link>https://blog.yoanm.tk/posts/git-restore/</link>
+      <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/git-restore/</guid>
+      <description>不適切なファイルをgit addしてしまいました
+weblog % git add content/posts/git-restore.md weblog % git status On branch main Your branch is up to date with &#39;origin/main&#39;. Changes to be committed: (use &amp;quot;git restore --staged &amp;lt;file&amp;gt;...&amp;quot; to unstage) new file: content/posts/git-restore.md こういった場合 git reset &amp;lt;FILE&amp;gt;を使ってunstagedにしていました
 が、上の例にもあるけど、git restoreを使えというサジェストが出ています そもそも気がついたときのログにはadd/rmのサジェストも出ています
-Changes not staged for commit: (use &amp;quot;git add/rm &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed) (use &amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory) git add/rm: commitされた内容を更新する git restore: working directoryの内容を破棄する という違いがあるようです 今回のように間違ってaddしてしまった場合は、git restoreの方が正しそうです。 試してみます。</description></item></channel></rss>
+Changes not staged for commit: (use &amp;quot;git add/rm &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed) (use &amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)  git add/rm: commitされた内容を更新する git restore: working directoryの内容を破棄する  という違いがあるようです 今回のように間違ってaddしてしまった場合は、git restoreの方が正しそうです。 試してみます。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bash on yoan.log</title><link>https://blog.yoanm.tk/tags/bash/</link><description>Recent content in bash on yoan.log</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 06 Feb 2021 16:25:03 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>go getで取得したコマンドの名前を変更する</title><link>https://blog.yoanm.tk/posts/duplicate-command/</link><pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate><guid>https://blog.yoanm.tk/posts/duplicate-command/</guid><description>yeomanを入れて実行したところエラー
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>bash on yoan.log</title>
+    <link>https://blog.yoanm.tk/tags/bash/</link>
+    <description>Recent content in bash on yoan.log</description>
+    <image>
+      <url>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 06 Feb 2021 16:25:03 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go getで取得したコマンドの名前を変更する</title>
+      <link>https://blog.yoanm.tk/posts/duplicate-command/</link>
+      <pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/duplicate-command/</guid>
+      <description>yeomanを入れて実行したところエラー
 ❯ yo code must specify 3 arguments 確認したところspannerのgeneratorであるyoがすでに入っていました&amp;hellip;
 ❯ yo help yo is a command-line tool to generate Go code for Google Cloud Spanner. (混乱を避けるため、以降ではコードブロック以外yoはspannerのコードジェネレートツールを指します)
 両方利用したかったのでspanner generatorのyoを別名に書き換える方針で決めました。 その名もgoyoです(ババーン)
@@ -6,4 +24,8 @@
 go getのオプションを探しましたがありませんでした
 そこで仕方なくyoの名前自体を変更します
 yoはバイナリが入っていると思ったらシェルスクリプトでした (goenvを使っているとそうなる？)
-❯ file ~/.anyenv/envs/goenv/shims/yo /Users/motoki.yoan/.anyenv/envs/goenv/shims/yo: Bourne-Again shell script text executable, ASCII text ❯ cat ~/.anyenv/envs/goenv/shims/yo #!/usr/bin/env bash set -e [ -n &amp;#34;$GOENV_DEBUG&amp;#34; ] &amp;amp;&amp;amp; set -x program=&amp;#34;${0##*/}&amp;#34; if [[ &amp;#34;$program&amp;#34; = &amp;#34;go&amp;#34;* ]]; then for arg; do case &amp;#34;$arg&amp;#34; in -c* | -- ) break ;; */* ) if [ -f &amp;#34;$arg&amp;#34; ]; then export GOENV_FILE_ARG=&amp;#34;$arg&amp;#34; break fi ;; esac done fi export GOENV_ROOT=&amp;#34;/Users/me/.</description></item></channel></rss>
+❯ file ~/.anyenv/envs/goenv/shims/yo /Users/motoki.yoan/.anyenv/envs/goenv/shims/yo: Bourne-Again shell script text executable, ASCII text ❯ cat ~/.anyenv/envs/goenv/shims/yo #!/usr/bin/env bash set -e [ -n &amp;#34;$GOENV_DEBUG&amp;#34; ] &amp;amp;&amp;amp; set -x program=&amp;#34;${0##*/}&amp;#34; if [[ &amp;#34;$program&amp;#34; = &amp;#34;go&amp;#34;* ]]; then for arg; do case &amp;#34;$arg&amp;#34; in -c* | -- ) break ;; */* ) if [ -f &amp;#34;$arg&amp;#34; ]; then export GOENV_FILE_ARG=&amp;#34;$arg&amp;#34; break fi ;; esac done fi export GOENV_ROOT=&amp;#34;/Users/me/.</description>
+    </item>
+    
+  </channel>
+</rss>

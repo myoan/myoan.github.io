@@ -1,1 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on yoan.log</title><link>https://blog.yoanm.tk/tags/</link><description>Recent content in Tags on yoan.log</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 19 Apr 2021 09:07:06 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>vscode</title><link>https://blog.yoanm.tk/tags/vscode/</link><pubDate>Mon, 19 Apr 2021 09:07:06 +0900</pubDate><guid>https://blog.yoanm.tk/tags/vscode/</guid><description/></item><item><title>bash</title><link>https://blog.yoanm.tk/tags/bash/</link><pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate><guid>https://blog.yoanm.tk/tags/bash/</guid><description/></item><item><title>go</title><link>https://blog.yoanm.tk/tags/go/</link><pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate><guid>https://blog.yoanm.tk/tags/go/</guid><description/></item><item><title>log</title><link>https://blog.yoanm.tk/tags/log/</link><pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate><guid>https://blog.yoanm.tk/tags/log/</guid><description/></item><item><title>git</title><link>https://blog.yoanm.tk/tags/git/</link><pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate><guid>https://blog.yoanm.tk/tags/git/</guid><description/></item><item><title>programming</title><link>https://blog.yoanm.tk/tags/programming/</link><pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate><guid>https://blog.yoanm.tk/tags/programming/</guid><description/></item><item><title>備忘録</title><link>https://blog.yoanm.tk/tags/%E5%82%99%E5%BF%98%E9%8C%B2/</link><pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate><guid>https://blog.yoanm.tk/tags/%E5%82%99%E5%BF%98%E9%8C%B2/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on yoan.log</title>
+    <link>https://blog.yoanm.tk/tags/</link>
+    <description>Recent content in Tags on yoan.log</description>
+    <image>
+      <url>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Apr 2021 09:07:06 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vscode</title>
+      <link>https://blog.yoanm.tk/tags/vscode/</link>
+      <pubDate>Mon, 19 Apr 2021 09:07:06 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://blog.yoanm.tk/tags/bash/</link>
+      <pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://blog.yoanm.tk/tags/go/</link>
+      <pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>log</title>
+      <link>https://blog.yoanm.tk/tags/log/</link>
+      <pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/tags/log/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://blog.yoanm.tk/tags/git/</link>
+      <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://blog.yoanm.tk/tags/programming/</link>
+      <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>備忘録</title>
+      <link>https://blog.yoanm.tk/tags/%E5%82%99%E5%BF%98%E9%8C%B2/</link>
+      <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/tags/%E5%82%99%E5%BF%98%E9%8C%B2/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
