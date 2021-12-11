@@ -9,7 +9,17 @@
       <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 04 Jun 2021 12:09:52 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 18:04:58 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>coreutilsのソースコードをDLする方法</title>
+      <link>https://blog.yoanm.tk/posts/read-coreutils/</link>
+      <pubDate>Sat, 11 Dec 2021 18:04:58 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/read-coreutils/</guid>
+      <description>aspのinstall $ sudo pacman asp aspの簡単な使い方 # packageの一覧 $ asp list-all # packageの取得 $ asp checkout coreutils coreutilsのダウンロード $ asp checokut coreutils $ cd coreutils $ makepkg -o # buildはせずDLだけするオプション 詰まったところ GPGキーがverifiyされない makepkgの実行中で下記のようなエラーが発生した
+ -&amp;gt; Found 01-fix-fs72253.patch ==&amp;gt; Validating source files with sha256sums... coreutils-9.0.tar.xz ... Passed coreutils-9.0.tar.xz.sig ... Skipped 01-fix-fs72253.patch ... Passed ==&amp;gt; Verifying source file signatures with gpg... coreutils-9.0.tar.xz ... FAILED (unknown public key DF6FD971306037D9) ==&amp;gt; ERROR: One or more PGP signatures could not be verified!</description>
+    </item>
+    
     <item>
       <title>Kotest Listener</title>
       <link>https://blog.yoanm.tk/posts/kotest-listener/</link>
