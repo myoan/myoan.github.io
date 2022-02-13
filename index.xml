@@ -8,6 +8,102 @@
       <url>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://blog.yoanm.tk/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 11 Dec 2021 18:04:58 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>coreutilsのソースコードをDLする方法</title>
+      <link>https://blog.yoanm.tk/posts/read-coreutils/</link>
+      <pubDate>Sat, 11 Dec 2021 18:04:58 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/read-coreutils/</guid>
+      <description>aspのinstall $ sudo pacman asp aspの簡単な使い方 # packageの一覧 $ asp list-all # packageの取得 $ asp checkout coreutils coreutilsのダウンロード $ asp checokut coreutils $ cd coreutils $ makepkg -o # buildはせずDLだけするオプション 詰まったところ GPGキーがverifiyされない makepkgの実行中で下記のようなエラーが発生した
+ -&amp;gt; Found 01-fix-fs72253.patch ==&amp;gt; Validating source files with sha256sums... coreutils-9.0.tar.xz ... Passed coreutils-9.0.tar.xz.sig ... Skipped 01-fix-fs72253.patch ... Passed ==&amp;gt; Verifying source file signatures with gpg... coreutils-9.0.tar.xz ... FAILED (unknown public key DF6FD971306037D9) ==&amp;gt; ERROR: One or more PGP signatures could not be verified!</description>
+    </item>
+    
+    <item>
+      <title>Kotest Listener</title>
+      <link>https://blog.yoanm.tk/posts/kotest-listener/</link>
+      <pubDate>Fri, 04 Jun 2021 12:09:52 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/kotest-listener/</guid>
+      <description>kotest kotlinでテストFWを増やしている
+Listenerの確認 TestListener
+beforeAnyとbeforeTest, afterAnyとafterTestは同じらしいので一つにまとめます
+import io.kotest.core.spec.style.DescribeSpec import io.kotest.matchers.shouldBe class ListenerSpec: DescribeSpec({ describe(&amp;#34;listener hook check&amp;#34;) { beforeContainer { println(&amp;#34;beforeContainer&amp;#34;) } afterContainer { println(&amp;#34;afterContainer&amp;#34;) } beforeEach { println(&amp;#34;beforeEach&amp;#34;) } afterEach { println(&amp;#34;afterEach&amp;#34;) } beforeTest { println(&amp;#34;beforeAny/beforeTest&amp;#34;) } afterTest { println(&amp;#34;afterAny/afterTest&amp;#34;) } beforeSpec { println(&amp;#34;beforeSpec&amp;#34;) } afterSpec { println(&amp;#34;afterSpec&amp;#34;) } context(&amp;#34;Simple&amp;#34;) { it(&amp;#34;Simple test&amp;#34;) { println(&amp;#34;--- Simple test&amp;#34;) 1 shouldBe 1 } } } }) beforeContainer beforeAny/beforeTest beforeEach beforeAny/beforeTest --- Simple test afterEach afterAny/afterTest afterContainer afterAny/afterTest afterSpec  before, afterともにContainer &amp;gt; Any/Test, Each &amp;gt; Any/Testの流れになっている  beforeとafterでstackの様にコールされるわけではない   beforeSpecが呼び出されない  詳細を調べる    class ListenerSpec: DescribeSpec({ // .</description>
+    </item>
+    
+    <item>
+      <title>vscode extensionのTreeViewを触ってみる</title>
+      <link>https://blog.yoanm.tk/posts/vscode-tree-view/</link>
+      <pubDate>Mon, 19 Apr 2021 09:07:06 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/vscode-tree-view/</guid>
+      <description>チュートリアルを行う https://code.visualstudio.com/api/extension-guides/tree-view
+チュートリアルではサイドバーにnode dependenciesを表示し、各packageのpackage.jsonを表示するサンプルを作っている。 しかしチュートリアルをそのまま試してもEditorにpackage.jsonの内容が表示されなかった。
+その理由が知りたくて色々と調査した
+結果として、githubのサンプルを実行するとわかるが、クリック時に発火するコマンドを指定しないと行けなかった
+コマンド発火のコードリーディング TreeViewをみると、チュートリアルに加えてvscode.Commandを付与している
+return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.None, { command: &amp;#39;extension.openPackageOnNpm&amp;#39;, title: &amp;#39;&amp;#39;, arguments: [moduleName] }); 併せてopenPackageOnNpmの登録もチュートリアルから追加されている
+vscode.commands.registerCommand(&amp;#39;extension.openPackageOnNpm&amp;#39;, moduleName =&amp;gt; vscode.commands.executeCommand(&amp;#39;vscode.open&amp;#39;, vscode.Uri.parse(`https://www.npmjs.com/package/${moduleName}`))); 実際、これらを実装するとクリックしたらNPMのwebpageに飛ぶ挙動が確認できた
+TreeItemオブジェクトはcommandをフィールドに保存しているが、自クラスでフィールドを操作している形跡はない つまり、vscode本体でTreeItem.commandを呼び出していると考えられる
+vscode本体をコードリーディング TreeItemの定義はこちら command自体は存在している よって、vscode本体でTreeItem.commandを呼び出す仮説は正しそう
+https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts#L9136
+この説明を見るに、clickをフックしてcommandを呼んでいる模様。
+async resolveTreeItem(treeItemHandle: string, token: vscode.CancellationToken): Promise&amp;lt;ITreeItem | undefined&amp;gt; { if (!this.dataProvider.resolveTreeItem) { return; } const element = this.elements.get(treeItemHandle); if (element) { const node = this.nodes.get(element); if (node) { const resolve = await this.dataProvider.resolveTreeItem(node.extensionItem, element, token) ?</description>
+    </item>
+    
+    <item>
+      <title>go getで取得したコマンドの名前を変更する</title>
+      <link>https://blog.yoanm.tk/posts/duplicate-command/</link>
+      <pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/duplicate-command/</guid>
+      <description>yeomanを入れて実行したところエラー
+❯ yo code must specify 3 arguments 確認したところspannerのgeneratorであるyoがすでに入っていました&amp;hellip;
+❯ yo help yo is a command-line tool to generate Go code for Google Cloud Spanner. (混乱を避けるため、以降ではコードブロック以外yoはspannerのコードジェネレートツールを指します)
+両方利用したかったのでspanner generatorのyoを別名に書き換える方針で決めました。 その名もgoyoです(ババーン)
+本題 ではどうやったらgo getで取得したコマンド名を変えられるのか？
+go getのオプションを探しましたがありませんでした
+そこで仕方なくyoの名前自体を変更します
+yoはバイナリが入っていると思ったらシェルスクリプトでした (goenvを使っているとそうなる？)
+❯ file ~/.anyenv/envs/goenv/shims/yo /Users/motoki.yoan/.anyenv/envs/goenv/shims/yo: Bourne-Again shell script text executable, ASCII text ❯ cat ~/.anyenv/envs/goenv/shims/yo #!/usr/bin/env bash set -e [ -n &amp;#34;$GOENV_DEBUG&amp;#34; ] &amp;amp;&amp;amp; set -x program=&amp;#34;${0##*/}&amp;#34; if [[ &amp;#34;$program&amp;#34; = &amp;#34;go&amp;#34;* ]]; then for arg; do case &amp;#34;$arg&amp;#34; in -c* | -- ) break ;; */* ) if [ -f &amp;#34;$arg&amp;#34; ]; then export GOENV_FILE_ARG=&amp;#34;$arg&amp;#34; break fi ;; esac done fi export GOENV_ROOT=&amp;#34;/Users/me/.</description>
+    </item>
+    
+    <item>
+      <title>git restoreってなんだ</title>
+      <link>https://blog.yoanm.tk/posts/git-restore/</link>
+      <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/git-restore/</guid>
+      <description>不適切なファイルをgit addしてしまいました
+weblog % git add content/posts/git-restore.md weblog % git status On branch main Your branch is up to date with &#39;origin/main&#39;. Changes to be committed: (use &amp;quot;git restore --staged &amp;lt;file&amp;gt;...&amp;quot; to unstage) new file: content/posts/git-restore.md こういった場合 git reset &amp;lt;FILE&amp;gt;を使ってunstagedにしていました
+が、上の例にもあるけど、git restoreを使えというサジェストが出ています そもそも気がついたときのログにはadd/rmのサジェストも出ています
+Changes not staged for commit: (use &amp;quot;git add/rm &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed) (use &amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)  git add/rm: commitされた内容を更新する git restore: working directoryの内容を破棄する  という違いがあるようです 今回のように間違ってaddしてしまった場合は、git restoreの方が正しそうです。 試してみます。</description>
+    </item>
+    
+    <item>
+      <title>もともとJavaプロジェクトでKotlinをインポートさせたい</title>
+      <link>https://blog.yoanm.tk/posts/kotlin-gradle-import/</link>
+      <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/kotlin-gradle-import/</guid>
+      <description>やりたいこと JavaのプロジェクトにKotlinを入れたい
+発生した状況 build.gradleの差分
+diff --git a/build.gradle b/build.gradle index xxxxxxxxxx..xxxxxxxx --- a/build.gradle +++ b/build.gradle @@ -6,6 +6,7 @@ plugins {  id &amp;#39;...&amp;#39; id &amp;#39;...&amp;#39; id &amp;#39;...&amp;#39; + id &amp;#39;org.jetbrains.kotlin.jvm&amp;#39; version &amp;#39;1.4.10&amp;#39;  } + +compileKotlin { + kotlinOptions.jvmTarget = &amp;#39;1.8&amp;#39; +} エラー (正確にはSuccessを返しているが、buildで失敗する)
+&amp;gt; Task :prepareKotlinBuildScriptModel UP-TO-DATE &amp;lt;ij_msg_gr&amp;gt;JEE project import errors&amp;lt;ij_msg_gr&amp;gt;&amp;lt;ij_nav&amp;gt;/path/to/project/build.gradle&amp;lt;ij_nav&amp;gt;&amp;lt;i&amp;gt;&amp;lt;b&amp;gt;root project &#39;example&#39;: Web Facets/Artifacts will not be configured properly&amp;lt;/b&amp;gt;&amp;lt;eol&amp;gt;Details: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfiguration$ArtifactResolveException: Could not resolve all files for configuration &#39;:runtimeClasspath&#39;.&amp;lt;eol&amp;gt;Caused by: org.</description>
+    </item>
+    
+    <item>
+      <title>ブログのテーマが決まらない</title>
+      <link>https://blog.yoanm.tk/posts/my-first-post/</link>
+      <pubDate>Fri, 01 Jan 2021 14:10:18 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/my-first-post/</guid>
+      <description>hugoを始めた ブログにあうテーマをここから探しているがいいのが見つからない
+だんだんと発散してきたので、シンプルで素敵なnoteworthyを使わさせていただきます
+ここではどんなテーマが良いかを整理する
+必須  シンプル twitter, githubのリンクがある トップページに記事の一覧がある 画像をアップロードしやすい syntax highlightがついている  あると嬉しい  cssのカスタムが容易 目次やtagページを自動生成してくれる  毎年ブログ作っているけれど今年は続くのか&amp;hellip;</description>
+    </item>
+    
   </channel>
 </rss>
