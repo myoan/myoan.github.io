@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>linux on yoan.log</title>
-    <link>https://blog.yoanm.tk/tags/linux/</link>
+    <link>https://myoan.github.io/tags/linux/</link>
     <description>Recent content in linux on yoan.log</description>
     <image>
-      <url>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Dec 2021 18:04:58 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Dec 2021 18:04:58 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>coreutilsのソースコードをDLする方法</title>
-      <link>https://blog.yoanm.tk/posts/read-coreutils/</link>
+      <link>https://myoan.github.io/posts/read-coreutils/</link>
       <pubDate>Sat, 11 Dec 2021 18:04:58 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/read-coreutils/</guid>
+      <guid>https://myoan.github.io/posts/read-coreutils/</guid>
       <description>aspのinstall $ sudo pacman asp aspの簡単な使い方 # packageの一覧 $ asp list-all # packageの取得 $ asp checkout coreutils coreutilsのダウンロード $ asp checokut coreutils $ cd coreutils $ makepkg -o # buildはせずDLだけするオプション 詰まったところ GPGキーがverifiyされない makepkgの実行中で下記のようなエラーが発生した
  -&amp;gt; Found 01-fix-fs72253.patch ==&amp;gt; Validating source files with sha256sums... coreutils-9.0.tar.xz ... Passed coreutils-9.0.tar.xz.sig ... Skipped 01-fix-fs72253.patch ... Passed ==&amp;gt; Verifying source file signatures with gpg... coreutils-9.0.tar.xz ... FAILED (unknown public key DF6FD971306037D9) ==&amp;gt; ERROR: One or more PGP signatures could not be verified!</description>
     </item>

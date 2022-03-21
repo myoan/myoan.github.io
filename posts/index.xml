@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on yoan.log</title>
-    <link>https://blog.yoanm.tk/posts/</link>
+    <link>https://myoan.github.io/posts/</link>
     <description>Recent content in Posts on yoan.log</description>
     <image>
-      <url>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 21 Mar 2022 11:19:25 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Mar 2022 11:19:25 +0900</lastBuildDate><atom:link href="https://myoan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GKEからのGCPへの認証をまとめる</title>
-      <link>https://blog.yoanm.tk/posts/gke-gcp-auth/</link>
+      <link>https://myoan.github.io/posts/gke-gcp-auth/</link>
       <pubDate>Mon, 21 Mar 2022 11:19:25 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/gke-gcp-auth/</guid>
+      <guid>https://myoan.github.io/posts/gke-gcp-auth/</guid>
       <description>GKE cluster作成時にも指定できるアクセススコープはレガシー扱いになっている https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes#what_are_access_scopes
 とはいえチュートリアルには--scopeを利用したものも見受けられる
  https://agones.dev/site/docs/installation/creating-cluster/gke/  アクセススコープは手軽だが細かい設定ができない。ServiceAccountを使うと必要最低限の権限のみ付与する事ができるので、セキュリティの品質が保たれるためGoogleとしてはServiceAccountを推している。という認識でいいのかな.
@@ -31,20 +31,20 @@ Alias URI gke-default https://www.googleapis.com/auth/devstorage.read_only https
     
     <item>
       <title>coreutilsのソースコードをDLする方法</title>
-      <link>https://blog.yoanm.tk/posts/read-coreutils/</link>
+      <link>https://myoan.github.io/posts/read-coreutils/</link>
       <pubDate>Sat, 11 Dec 2021 18:04:58 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/read-coreutils/</guid>
+      <guid>https://myoan.github.io/posts/read-coreutils/</guid>
       <description>aspのinstall $ sudo pacman asp aspの簡単な使い方 # packageの一覧 $ asp list-all # packageの取得 $ asp checkout coreutils coreutilsのダウンロード $ asp checokut coreutils $ cd coreutils $ makepkg -o # buildはせずDLだけするオプション 詰まったところ GPGキーがverifiyされない makepkgの実行中で下記のようなエラーが発生した
  -&amp;gt; Found 01-fix-fs72253.patch ==&amp;gt; Validating source files with sha256sums... coreutils-9.0.tar.xz ... Passed coreutils-9.0.tar.xz.sig ... Skipped 01-fix-fs72253.patch ... Passed ==&amp;gt; Verifying source file signatures with gpg... coreutils-9.0.tar.xz ... FAILED (unknown public key DF6FD971306037D9) ==&amp;gt; ERROR: One or more PGP signatures could not be verified!</description>
     </item>
     
     <item>
       <title>Kotest Listener</title>
-      <link>https://blog.yoanm.tk/posts/kotest-listener/</link>
+      <link>https://myoan.github.io/posts/kotest-listener/</link>
       <pubDate>Fri, 04 Jun 2021 12:09:52 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/kotest-listener/</guid>
+      <guid>https://myoan.github.io/posts/kotest-listener/</guid>
       <description>kotest kotlinでテストFWを増やしている
 Listenerの確認 TestListener
 beforeAnyとbeforeTest, afterAnyとafterTestは同じらしいので一つにまとめます
@@ -53,10 +53,10 @@ import io.kotest.core.spec.style.DescribeSpec import io.kotest.matchers.shouldBe
     
     <item>
       <title>vscode extensionのTreeViewを触ってみる</title>
-      <link>https://blog.yoanm.tk/posts/vscode-tree-view/</link>
+      <link>https://myoan.github.io/posts/vscode-tree-view/</link>
       <pubDate>Mon, 19 Apr 2021 09:07:06 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/vscode-tree-view/</guid>
+      <guid>https://myoan.github.io/posts/vscode-tree-view/</guid>
       <description>チュートリアルを行う https://code.visualstudio.com/api/extension-guides/tree-view
 チュートリアルではサイドバーにnode dependenciesを表示し、各packageのpackage.jsonを表示するサンプルを作っている。 しかしチュートリアルをそのまま試してもEditorにpackage.jsonの内容が表示されなかった。
 その理由が知りたくて色々と調査した
@@ -73,10 +73,10 @@ async resolveTreeItem(treeItemHandle: string, token: vscode.CancellationToken): 
     
     <item>
       <title>go getで取得したコマンドの名前を変更する</title>
-      <link>https://blog.yoanm.tk/posts/duplicate-command/</link>
+      <link>https://myoan.github.io/posts/duplicate-command/</link>
       <pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/duplicate-command/</guid>
+      <guid>https://myoan.github.io/posts/duplicate-command/</guid>
       <description>yeomanを入れて実行したところエラー
 ❯ yo code must specify 3 arguments 確認したところspannerのgeneratorであるyoがすでに入っていました&amp;hellip;
 ❯ yo help yo is a command-line tool to generate Go code for Google Cloud Spanner. (混乱を避けるため、以降ではコードブロック以外yoはspannerのコードジェネレートツールを指します)
@@ -90,10 +90,10 @@ yoはバイナリが入っていると思ったらシェルスクリプトでし
     
     <item>
       <title>git restoreってなんだ</title>
-      <link>https://blog.yoanm.tk/posts/git-restore/</link>
+      <link>https://myoan.github.io/posts/git-restore/</link>
       <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/git-restore/</guid>
+      <guid>https://myoan.github.io/posts/git-restore/</guid>
       <description>不適切なファイルをgit addしてしまいました
 weblog % git add content/posts/git-restore.md weblog % git status On branch main Your branch is up to date with &#39;origin/main&#39;. Changes to be committed: (use &amp;quot;git restore --staged &amp;lt;file&amp;gt;...&amp;quot; to unstage) new file: content/posts/git-restore.md こういった場合 git reset &amp;lt;FILE&amp;gt;を使ってunstagedにしていました
 が、上の例にもあるけど、git restoreを使えというサジェストが出ています そもそも気がついたときのログにはadd/rmのサジェストも出ています
@@ -102,10 +102,10 @@ Changes not staged for commit: (use &amp;quot;git add/rm &amp;lt;file&amp;gt;...
     
     <item>
       <title>もともとJavaプロジェクトでKotlinをインポートさせたい</title>
-      <link>https://blog.yoanm.tk/posts/kotlin-gradle-import/</link>
+      <link>https://myoan.github.io/posts/kotlin-gradle-import/</link>
       <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/kotlin-gradle-import/</guid>
+      <guid>https://myoan.github.io/posts/kotlin-gradle-import/</guid>
       <description>やりたいこと JavaのプロジェクトにKotlinを入れたい
 発生した状況 build.gradleの差分
 diff --git a/build.gradle b/build.gradle index xxxxxxxxxx..xxxxxxxx --- a/build.gradle +++ b/build.gradle @@ -6,6 +6,7 @@ plugins {  id &amp;#39;...&amp;#39; id &amp;#39;...&amp;#39; id &amp;#39;...&amp;#39; + id &amp;#39;org.jetbrains.kotlin.jvm&amp;#39; version &amp;#39;1.4.10&amp;#39;  } + +compileKotlin { + kotlinOptions.jvmTarget = &amp;#39;1.8&amp;#39; +} エラー (正確にはSuccessを返しているが、buildで失敗する)
@@ -114,10 +114,10 @@ diff --git a/build.gradle b/build.gradle index xxxxxxxxxx..xxxxxxxx --- a/build.
     
     <item>
       <title>ブログのテーマが決まらない</title>
-      <link>https://blog.yoanm.tk/posts/my-first-post/</link>
+      <link>https://myoan.github.io/posts/my-first-post/</link>
       <pubDate>Fri, 01 Jan 2021 14:10:18 +0900</pubDate>
       
-      <guid>https://blog.yoanm.tk/posts/my-first-post/</guid>
+      <guid>https://myoan.github.io/posts/my-first-post/</guid>
       <description>hugoを始めた ブログにあうテーマをここから探しているがいいのが見つからない
 だんだんと発散してきたので、シンプルで素敵なnoteworthyを使わさせていただきます
 ここではどんなテーマが良いかを整理する
