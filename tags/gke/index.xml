@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>gke on yoan.log</title>
+    <link>https://blog.yoanm.tk/tags/gke/</link>
+    <description>Recent content in gke on yoan.log</description>
+    <image>
+      <url>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.yoanm.tk/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 21 Mar 2022 11:19:25 +0900</lastBuildDate><atom:link href="https://blog.yoanm.tk/tags/gke/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GKEからのGCPへの認証をまとめる</title>
+      <link>https://blog.yoanm.tk/posts/gke-gcp-auth/</link>
+      <pubDate>Mon, 21 Mar 2022 11:19:25 +0900</pubDate>
+      
+      <guid>https://blog.yoanm.tk/posts/gke-gcp-auth/</guid>
+      <description>GKE cluster作成時にも指定できるアクセススコープはレガシー扱いになっている https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes#what_are_access_scopes
+とはいえチュートリアルには--scopeを利用したものも見受けられる
+ https://agones.dev/site/docs/installation/creating-cluster/gke/  アクセススコープは手軽だが細かい設定ができない。ServiceAccountを使うと必要最低限の権限のみ付与する事ができるので、セキュリティの品質が保たれるためGoogleとしてはServiceAccountを推している。という認識でいいのかな.
+GKEの権限関係で迷わないよう、サービス アカウントを使用した Google Cloud への認証を題材にやり方を整理する
+事前準備 題材に則りpubsub topicを作成し、publishとsubscribeができるか検証する
+pubsub topicの作成 gcloud pubsub topics create echo gcloud pubsub subscriptions create echo-read --topic=echo ソースコード取得 git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples cd kubernetes-engine-samples cloud-pubsub/deployment以下のyamlファイルを実際に適応していく
+クラスタ作成時にスコープをつける クラスタ作成
+gcloud container clusters create pubsub-test --scopes=gke-default,https://www.googleapis.com/auth/pubsub --zone asia-northeast1-a scope オプションについて --scopesオプションをつけることでクラスタに権限を付与できる gke-defaultは下記のscopeをまとめたエイリアスになる
+Alias URI gke-default https://www.googleapis.com/auth/devstorage.read_only https://www.googleapis.com/auth/logging.write https://www.googleapis.com/auth/monitoring https://www.googleapis.com/auth/service.management.readonly https://www.googleapis.com/auth/servicecontrol https://www.googleapis.com/auth/trace.append gcloud container clusters create --helpをすると他のエイリアスもあるのでみてみると良い (webのmanにも載っている)
+また複数指定したいのでカンマ区切りで指定している scopeの一覧から選んで付与していく.
+(権限を追加する) 後から権限を追加したくなるケースはどうするか? scopeを変えたいならば、node-poolsを作り変える事しかできない</description>
+    </item>
+    
+  </channel>
+</rss>

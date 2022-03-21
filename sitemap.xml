@@ -3,32 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.yoanm.tk/tags/gcp/</loc>
+    <lastmod>2022-03-21T11:19:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yoanm.tk/tags/gke/</loc>
+    <lastmod>2022-03-21T11:19:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yoanm.tk/posts/gke-gcp-auth/</loc>
+    <lastmod>2022-03-21T11:19:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yoanm.tk/tags/k8s/</loc>
+    <lastmod>2022-03-21T11:19:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yoanm.tk/tags/log/</loc>
+    <lastmod>2022-03-21T11:19:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yoanm.tk/posts/</loc>
+    <lastmod>2022-03-21T11:19:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yoanm.tk/tags/</loc>
+    <lastmod>2022-03-21T11:19:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.yoanm.tk/</loc>
+    <lastmod>2022-03-21T11:19:25+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.yoanm.tk/posts/read-coreutils/</loc>
     <lastmod>2021-12-11T18:04:58+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.yoanm.tk/tags/linux/</loc>
-    <lastmod>2021-12-11T18:04:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.yoanm.tk/tags/log/</loc>
-    <lastmod>2021-12-11T18:04:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.yoanm.tk/posts/</loc>
-    <lastmod>2021-12-11T18:04:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.yoanm.tk/tags/</loc>
-    <lastmod>2021-12-11T18:04:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.yoanm.tk/</loc>
     <lastmod>2021-12-11T18:04:58+09:00</lastmod>
   </url>
   
