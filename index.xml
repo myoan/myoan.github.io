@@ -11,11 +11,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 11 May 2022 10:00:42 +0900</lastBuildDate><atom:link href="https://myoan.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Geometry_compression</title>
-      <link>https://myoan.github.io/posts/geometry_compression/</link>
+      <title>Multiplayer Game Programming読本</title>
+      <link>https://myoan.github.io/posts/geometry-compression/</link>
       <pubDate>Wed, 11 May 2022 10:00:42 +0900</pubDate>
       
-      <guid>https://myoan.github.io/posts/geometry_compression/</guid>
+      <guid>https://myoan.github.io/posts/geometry-compression/</guid>
       <description>multiplayer game programmingという本を気になる部分だけつまみ食いして読んでいる 今日はChapter 4にあった&amp;quot;Compression&amp;quot;をまとめる 英語の見出しは本文のタイトルを引用し、日本語の見出しは私がみやすさでつけたもの
 Compression マルチプレイのリアルタイム性のあるゲームであればあるほど、通信するオブジェクトと頻度が増え必要な通信帯域が増加する そのため、可能な限り無駄な情報は削減して通信を行う必要がある この章では低レベルな圧縮方法の紹介を行っている
 Sparse Array Compression 本で扱っているサンプルゲームでは名前を128byteまで許容されている。 名前の配列に128byteの配列を利用するのがプログラムとしては妥当だが、128byte使い切らないユーザーも含まれるため不要なスペースができてしまう。 そこで、名前長 + 名前というバイト列にする事で余計なスペースを除去するという圧縮方法
