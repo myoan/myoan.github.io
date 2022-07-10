@@ -9,7 +9,16 @@
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 11 May 2022 10:00:42 +0900</lastBuildDate><atom:link href="https://myoan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jul 2022 23:53:52 +0900</lastBuildDate><atom:link href="https://myoan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Journalctl の使い方</title>
+      <link>https://myoan.github.io/posts/journalctl/</link>
+      <pubDate>Sun, 10 Jul 2022 23:53:52 +0900</pubDate>
+      
+      <guid>https://myoan.github.io/posts/journalctl/</guid>
+      <description>忙しい人向け journalctl -u mariadb.service -xe serviceを指定する journalctl -u mariadb.service tailする journalctl -e tail -f journalctl -f 詳細情報 journalctl -xe </description>
+    </item>
+    
     <item>
       <title>Multiplayer Game Programming読本</title>
       <link>https://myoan.github.io/posts/geometry-compression/</link>
