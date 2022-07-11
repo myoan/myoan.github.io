@@ -9,7 +9,17 @@
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 10 Jul 2022 23:53:52 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/log/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Jul 2022 02:56:03 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/log/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible</title>
+      <link>https://myoan.github.io/posts/ansible/</link>
+      <pubDate>Tue, 12 Jul 2022 02:56:03 +0900</pubDate>
+      
+      <guid>https://myoan.github.io/posts/ansible/</guid>
+      <description>ansibleの使い方 install brew install ansible 接続確認 ❯ cat hosts [server] xxx.xxx.xxx.xxx 実行
+❯ ansible server -i hosts -m ping -u ubuntu 18.183.206.58 | SUCCESS =&amp;gt; { &amp;quot;ansible_facts&amp;quot;: { &amp;quot;discovered_interpreter_python&amp;quot;: &amp;quot;/usr/bin/python3&amp;quot; }, &amp;quot;changed&amp;quot;: false, &amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot; } playbook適用 ❯ cat playbook.yml --- - name: Update web servers hosts: server remote_user: ubuntu become: true tasks: - name: Run the equivalent of &amp;quot;apt-get update&amp;quot; as a separate step ansible.builtin.apt: update_cache: yes syntax-check ansible-playbook playbook.</description>
+    </item>
+    
     <item>
       <title>Journalctl の使い方</title>
       <link>https://myoan.github.io/posts/journalctl/</link>
