@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://myoan.github.io/posts/git-submodule-update/</loc>
+    <lastmod>2023-03-23T19:43:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://myoan.github.io/posts/</loc>
+    <lastmod>2023-03-23T19:43:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://myoan.github.io/</loc>
+    <lastmod>2023-03-23T19:43:32+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://myoan.github.io/posts/ansible/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://myoan.github.io/tags/log/</loc>
-    <lastmod>2022-07-12T02:56:03+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://myoan.github.io/posts/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
   </url>
   
@@ -29,11 +39,6 @@
   
   <url>
     <loc>https://myoan.github.io/tags/</loc>
-    <lastmod>2022-07-12T02:56:03+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://myoan.github.io/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
   </url>
   

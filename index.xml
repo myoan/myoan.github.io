@@ -9,7 +9,22 @@
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Jul 2022 02:56:03 +0900</lastBuildDate><atom:link href="https://myoan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Mar 2023 19:43:32 +0900</lastBuildDate><atom:link href="https://myoan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Submodule系操作まとめ</title>
+      <link>https://myoan.github.io/posts/git-submodule-update/</link>
+      <pubDate>Thu, 23 Mar 2023 19:43:32 +0900</pubDate>
+      
+      <guid>https://myoan.github.io/posts/git-submodule-update/</guid>
+      <description>git submoduleのコマンドをよく調べるのでまとめてしまう
+https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB
+を参考にしています
+1. 初期化する git submodule init 2. 更新する git submodule update 1, 2を合わせて
+git submodule update --init 3. diffが意味不明 yoan $ git diff diff --git a/submodule b/submodule index aaaaaaaaaa..bbbbbbbb 160000 --- a/submodule +++ b/submodule @@ -1 +1 @@ -Subproject commit aaaaaaa... +Subproject commit bbbbbbb... diff差分がよくわからないときは--submoduleオプションを追加する
+yoan $ git diff --submodule Submodule /submodule aaaaaaaaaaa..bbbbbbbbbbb (rewind): &amp;lt; Merge pull request #2 from hogehoge defaultで有効化もできる
+yoan $ git config --global diff.</description>
+    </item>
+    
     <item>
       <title>Ansible</title>
       <link>https://myoan.github.io/posts/ansible/</link>
