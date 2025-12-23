@@ -1,149 +1,91 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://myoan.github.io/posts/git-submodule-update/</loc>
     <lastmod>2023-03-23T19:43:32+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/</loc>
     <lastmod>2023-03-23T19:43:32+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/</loc>
     <lastmod>2023-03-23T19:43:32+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/ansible/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/log/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/programming/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/short/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/journalctl/</loc>
     <lastmod>2022-07-10T23:53:52+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/game/</loc>
     <lastmod>2022-05-11T10:00:42+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/geometry-compression/</loc>
     <lastmod>2022-05-11T10:00:42+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/gcp/</loc>
     <lastmod>2022-03-21T11:19:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/gke/</loc>
     <lastmod>2022-03-21T11:19:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/gke-gcp-auth/</loc>
     <lastmod>2022-03-21T11:19:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/k8s/</loc>
     <lastmod>2022-03-21T11:19:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/read-coreutils/</loc>
     <lastmod>2021-12-11T18:04:58+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/linux/</loc>
     <lastmod>2021-12-11T18:04:58+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/kotest-listener/</loc>
     <lastmod>2021-06-04T12:09:52+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/vscode/</loc>
     <lastmod>2021-04-19T09:07:06+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/vscode-tree-view/</loc>
     <lastmod>2021-04-19T09:07:06+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/bash/</loc>
     <lastmod>2021-02-06T16:25:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/go/</loc>
     <lastmod>2021-02-06T16:25:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/duplicate-command/</loc>
     <lastmod>2021-02-06T16:25:03+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/git/</loc>
     <lastmod>2021-01-08T20:48:37+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/git-restore/</loc>
     <lastmod>2021-01-08T20:48:37+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/kotlin-gradle-import/</loc>
     <lastmod>2021-01-08T20:48:37+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/tags/%E5%82%99%E5%BF%98%E9%8C%B2/</loc>
     <lastmod>2021-01-08T20:48:37+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/posts/my-first-post/</loc>
     <lastmod>2021-01-01T14:10:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://myoan.github.io/categories/</loc>
   </url>
-  
 </urlset>

@@ -5,9 +5,12 @@
     <link>https://myoan.github.io/categories/</link>
     <description>Recent content in Categories on yoan.log</description>
     <image>
+      <title>yoan.log</title>
       <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://myoan.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.153.1</generator>
+    <language>en</language>
+    <atom:link href="https://myoan.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

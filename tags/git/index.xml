@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>git on yoan.log</title>
+    <title>Git on yoan.log</title>
     <link>https://myoan.github.io/tags/git/</link>
-    <description>Recent content in git on yoan.log</description>
+    <description>Recent content in Git on yoan.log</description>
     <image>
+      <title>yoan.log</title>
       <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 08 Jan 2021 20:48:37 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.153.1</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Jan 2021 20:48:37 +0900</lastBuildDate>
+    <atom:link href="https://myoan.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git restoreってなんだ</title>
       <link>https://myoan.github.io/posts/git-restore/</link>
       <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/git-restore/</guid>
-      <description>不適切なファイルをgit addしてしまいました
-weblog % git add content/posts/git-restore.md weblog % git status On branch main Your branch is up to date with &#39;origin/main&#39;. Changes to be committed: (use &amp;quot;git restore --staged &amp;lt;file&amp;gt;...&amp;quot; to unstage) new file: content/posts/git-restore.md こういった場合 git reset &amp;lt;FILE&amp;gt;を使ってunstagedにしていました
-が、上の例にもあるけど、git restoreを使えというサジェストが出ています そもそも気がついたときのログにはadd/rmのサジェストも出ています
-Changes not staged for commit: (use &amp;quot;git add/rm &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed) (use &amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)  git add/rm: commitされた内容を更新する git restore: working directoryの内容を破棄する  という違いがあるようです 今回のように間違ってaddしてしまった場合は、git restoreの方が正しそうです。 試してみます。</description>
+      <description>&lt;p&gt;不適切なファイルを&lt;code&gt;git add&lt;/code&gt;してしまいました&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;weblog % git add content/posts/git-restore.md 
+weblog % git status                          
+On branch main
+Your branch is up to date with &amp;#39;origin/main&amp;#39;.
+
+Changes to be committed:
+  (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage)
+        new file:   content/posts/git-restore.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;こういった場合 &lt;code&gt;git reset &amp;lt;FILE&amp;gt;&lt;/code&gt;を使ってunstagedにしていました&lt;/p&gt;
+&lt;p&gt;が、上の例にもあるけど、&lt;code&gt;git restore&lt;/code&gt;を使えというサジェストが出ています
+そもそも気がついたときのログにはadd/rmのサジェストも出ています&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Changes not staged for commit:
+  (use &amp;#34;git add/rm &amp;lt;file&amp;gt;...&amp;#34; to update what will be committed)
+  (use &amp;#34;git restore &amp;lt;file&amp;gt;...&amp;#34; to discard changes in working directory)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git add/rm&lt;/code&gt;: commitされた内容を更新する&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git restore&lt;/code&gt;: working directoryの内容を破棄する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;という違いがあるようです
+今回のように間違ってaddしてしまった場合は、&lt;code&gt;git restore&lt;/code&gt;の方が正しそうです。
+試してみます。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

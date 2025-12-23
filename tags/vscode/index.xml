@@ -1,34 +1,67 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>vscode on yoan.log</title>
+    <title>Vscode on yoan.log</title>
     <link>https://myoan.github.io/tags/vscode/</link>
-    <description>Recent content in vscode on yoan.log</description>
+    <description>Recent content in Vscode on yoan.log</description>
     <image>
+      <title>yoan.log</title>
       <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 19 Apr 2021 09:07:06 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.153.1</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Apr 2021 09:07:06 +0900</lastBuildDate>
+    <atom:link href="https://myoan.github.io/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>vscode extensionのTreeViewを触ってみる</title>
       <link>https://myoan.github.io/posts/vscode-tree-view/</link>
       <pubDate>Mon, 19 Apr 2021 09:07:06 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/vscode-tree-view/</guid>
-      <description>チュートリアルを行う https://code.visualstudio.com/api/extension-guides/tree-view
-チュートリアルではサイドバーにnode dependenciesを表示し、各packageのpackage.jsonを表示するサンプルを作っている。 しかしチュートリアルをそのまま試してもEditorにpackage.jsonの内容が表示されなかった。
-その理由が知りたくて色々と調査した
-結果として、githubのサンプルを実行するとわかるが、クリック時に発火するコマンドを指定しないと行けなかった
-コマンド発火のコードリーディング TreeViewをみると、チュートリアルに加えてvscode.Commandを付与している
-return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.None, { command: &amp;#39;extension.openPackageOnNpm&amp;#39;, title: &amp;#39;&amp;#39;, arguments: [moduleName] }); 併せてopenPackageOnNpmの登録もチュートリアルから追加されている
-vscode.commands.registerCommand(&amp;#39;extension.openPackageOnNpm&amp;#39;, moduleName =&amp;gt; vscode.commands.executeCommand(&amp;#39;vscode.open&amp;#39;, vscode.Uri.parse(`https://www.npmjs.com/package/${moduleName}`))); 実際、これらを実装するとクリックしたらNPMのwebpageに飛ぶ挙動が確認できた
-TreeItemオブジェクトはcommandをフィールドに保存しているが、自クラスでフィールドを操作している形跡はない つまり、vscode本体でTreeItem.commandを呼び出していると考えられる
-vscode本体をコードリーディング TreeItemの定義はこちら command自体は存在している よって、vscode本体でTreeItem.commandを呼び出す仮説は正しそう
-https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts#L9136
-この説明を見るに、clickをフックしてcommandを呼んでいる模様。
-async resolveTreeItem(treeItemHandle: string, token: vscode.CancellationToken): Promise&amp;lt;ITreeItem | undefined&amp;gt; { if (!this.dataProvider.resolveTreeItem) { return; } const element = this.elements.get(treeItemHandle); if (element) { const node = this.nodes.get(element); if (node) { const resolve = await this.dataProvider.resolveTreeItem(node.extensionItem, element, token) ?</description>
+      <description>&lt;h2 id=&#34;チュートリアルを行う&#34;&gt;チュートリアルを行う&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/api/extension-guides/tree-view&#34;&gt;https://code.visualstudio.com/api/extension-guides/tree-view&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;チュートリアルではサイドバーにnode dependenciesを表示し、各packageのpackage.jsonを表示するサンプルを作っている。
+しかしチュートリアルをそのまま試してもEditorにpackage.jsonの内容が表示されなかった。&lt;/p&gt;
+&lt;p&gt;その理由が知りたくて色々と調査した&lt;/p&gt;
+&lt;p&gt;結果として、githubのサンプルを実行するとわかるが、クリック時に発火するコマンドを指定しないと行けなかった&lt;/p&gt;
+&lt;h2 id=&#34;コマンド発火のコードリーディング&#34;&gt;コマンド発火のコードリーディング&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/vscode-extension-samples/blob/main/tree-view-sample&#34;&gt;TreeView&lt;/a&gt;をみると、チュートリアルに加えて&lt;code&gt;vscode.Command&lt;/code&gt;を付与している&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Dependency&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;moduleName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;version&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;vscode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;TreeItemCollapsibleState&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;None&lt;/span&gt;, {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;extension.openPackageOnNpm&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;arguments&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; [&lt;span style=&#34;color:#a6e22e&#34;&gt;moduleName&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;});
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;併せて&lt;code&gt;openPackageOnNpm&lt;/code&gt;の登録もチュートリアルから追加されている&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;vscode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;commands&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;registerCommand&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;extension.openPackageOnNpm&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;moduleName&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;vscode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;commands&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;executeCommand&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;vscode.open&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;vscode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Uri&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;parse&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;`https://www.npmjs.com/package/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;moduleName&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;)));
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;実際、これらを実装するとクリックしたらNPMのwebpageに飛ぶ挙動が確認できた&lt;/p&gt;
+&lt;p&gt;TreeItemオブジェクトはcommandをフィールドに保存しているが、自クラスでフィールドを操作している形跡はない
+つまり、vscode本体でTreeItem.commandを呼び出していると考えられる&lt;/p&gt;
+&lt;h2 id=&#34;vscode本体をコードリーディング&#34;&gt;vscode本体をコードリーディング&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/vscode/blob/main/src/vs/workbench/api/common/extHostTypes.ts#L2221-L2240&#34;&gt;TreeItemの定義はこちら&lt;/a&gt;
+command自体は存在している
+よって、vscode本体で&lt;code&gt;TreeItem.command&lt;/code&gt;を呼び出す仮説は正しそう&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts#L9136&#34;&gt;https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts#L9136&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;この説明を見るに、clickをフックしてcommandを呼んでいる模様。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resolveTreeItem&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;treeItemHandle&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;token&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;vscode.CancellationToken&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Promise&lt;/span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;ITreeItem&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;undefined&lt;/span&gt;&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dataProvider&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;resolveTreeItem&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;elements&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;treeItemHandle&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;nodes&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resolve&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dataProvider&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;resolveTreeItem&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;extensionItem&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;token&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;??&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;extensionItem&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#75715e&#34;&gt;// Resolvable elements. Currently only tooltip and command.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;tooltip&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;getTooltip&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;resolve&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;tooltip&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;command&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;getCommand&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;disposableStore&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;resolve&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;command&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/vscode/blob/8aff878db2542eea2dfb571c8bb485118bbb3113/src/vs/workbench/api/common/extHostTreeViews.ts#L376-L392&#34;&gt;https://github.com/microsoft/vscode/blob/8aff878db2542eea2dfb571c8bb485118bbb3113/src/vs/workbench/api/common/extHostTreeViews.ts#L376-L392&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TreeItemを取得するときにクリックハンドラを&lt;code&gt;getCommand&lt;/code&gt;で取得していた&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

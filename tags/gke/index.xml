@@ -1,31 +1,89 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>gke on yoan.log</title>
+    <title>Gke on yoan.log</title>
     <link>https://myoan.github.io/tags/gke/</link>
-    <description>Recent content in gke on yoan.log</description>
+    <description>Recent content in Gke on yoan.log</description>
     <image>
+      <title>yoan.log</title>
       <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 21 Mar 2022 11:19:25 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/gke/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.153.1</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 21 Mar 2022 11:19:25 +0900</lastBuildDate>
+    <atom:link href="https://myoan.github.io/tags/gke/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GKEからのGCPへの認証をまとめる</title>
       <link>https://myoan.github.io/posts/gke-gcp-auth/</link>
       <pubDate>Mon, 21 Mar 2022 11:19:25 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/gke-gcp-auth/</guid>
-      <description>GKE cluster作成時にも指定できるアクセススコープはレガシー扱いになっている https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes#what_are_access_scopes
-とはいえチュートリアルには--scopeを利用したものも見受けられる
- https://agones.dev/site/docs/installation/creating-cluster/gke/  アクセススコープは手軽だが細かい設定ができない。ServiceAccountを使うと必要最低限の権限のみ付与する事ができるので、セキュリティの品質が保たれるためGoogleとしてはServiceAccountを推している。という認識でいいのかな.
-GKEの権限関係で迷わないよう、サービス アカウントを使用した Google Cloud への認証を題材にやり方を整理する
- アクセススコープを用いた認証 ServiceAccountを用いた認証 (おまけ) ServiceAccount認証にWorkload Identityを用いる  事前準備 題材に則りpubsub topicを作成し、publishとsubscribeができるか検証する
-pubsub topicの作成 gcloud pubsub topics create echo gcloud pubsub subscriptions create echo-read --topic=echo ソースコード取得 git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples cd kubernetes-engine-samples cloud-pubsub/deployment以下のyamlファイルを実際に適応していく
-1. アクセススコープを用いた認証 クラスタ作成
-gcloud container clusters create pubsub-test --scopes=gke-default,https://www.googleapis.com/auth/pubsub --zone asia-northeast1-a scope オプションについて --scopesオプションをつけることでクラスタに権限を付与できる gke-defaultは下記のscopeをまとめたエイリアスになる
-Alias URI gke-default https://www.googleapis.com/auth/devstorage.read_only https://www.googleapis.com/auth/logging.write https://www.googleapis.com/auth/monitoring https://www.googleapis.com/auth/service.management.readonly https://www.googleapis.com/auth/servicecontrol https://www.googleapis.com/auth/trace.append gcloud container clusters create --helpをすると他のエイリアスもあるのでみてみると良い (webのmanにも載っている)</description>
+      <description>&lt;p&gt;GKE cluster作成時にも指定できるアクセススコープはレガシー扱いになっている
+&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes#what_are_access_scopes&#34;&gt;https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes#what_are_access_scopes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;とはいえチュートリアルには&lt;code&gt;--scope&lt;/code&gt;を利用したものも見受けられる&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://agones.dev/site/docs/installation/creating-cluster/gke/&#34;&gt;https://agones.dev/site/docs/installation/creating-cluster/gke/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;アクセススコープは手軽だが細かい設定ができない。ServiceAccountを使うと必要最低限の権限のみ付与する事ができるので、セキュリティの品質が保たれるためGoogleとしてはServiceAccountを推している。という認識でいいのかな.&lt;/p&gt;
+&lt;p&gt;GKEの権限関係で迷わないよう、&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform#use_workload_identity&#34;&gt;サービス アカウントを使用した Google Cloud への認証&lt;/a&gt;を題材にやり方を整理する&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;アクセススコープを用いた認証&lt;/li&gt;
+&lt;li&gt;ServiceAccountを用いた認証&lt;/li&gt;
+&lt;li&gt;(おまけ) ServiceAccount認証にWorkload Identityを用いる&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;事前準備&#34;&gt;事前準備&lt;/h1&gt;
+&lt;p&gt;題材に則りpubsub topicを作成し、publishとsubscribeができるか検証する&lt;/p&gt;
+&lt;h2 id=&#34;pubsub-topicの作成&#34;&gt;pubsub topicの作成&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gcloud pubsub topics create echo
+gcloud pubsub subscriptions create echo-read --topic=echo
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;ソースコード取得&#34;&gt;ソースコード取得&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
+cd kubernetes-engine-samples
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;cloud-pubsub/deployment&lt;/code&gt;以下のyamlファイルを実際に適応していく&lt;/p&gt;
+&lt;h1 id=&#34;1-アクセススコープを用いた認証&#34;&gt;1. アクセススコープを用いた認証&lt;/h1&gt;
+&lt;p&gt;クラスタ作成&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gcloud container clusters create pubsub-test --scopes=gke-default,https://www.googleapis.com/auth/pubsub --zone
+asia-northeast1-a
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;scope-オプションについて&#34;&gt;scope オプションについて&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;--scopes&lt;/code&gt;オプションをつけることでクラスタに権限を付与できる
+&lt;code&gt;gke-default&lt;/code&gt;は下記のscopeをまとめたエイリアスになる&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Alias       URI
+gke-default https://www.googleapis.com/auth/devstorage.read_only
+            https://www.googleapis.com/auth/logging.write
+            https://www.googleapis.com/auth/monitoring
+            https://www.googleapis.com/auth/service.management.readonly
+            https://www.googleapis.com/auth/servicecontrol
+            https://www.googleapis.com/auth/trace.append
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;gcloud container clusters create --help&lt;/code&gt;をすると他のエイリアスもあるのでみてみると良い
+(&lt;a href=&#34;https://cloud.google.com/sdk/gcloud/reference/container/clusters/create&#34;&gt;webのman&lt;/a&gt;にも載っている)&lt;/p&gt;
+&lt;p&gt;また複数指定したいのでカンマ区切りで指定している
+&lt;a href=&#34;https://developers.google.com/identity/protocols/oauth2/scopes&#34;&gt;scopeの一覧&lt;/a&gt;から選んで付与していく.&lt;/p&gt;
+&lt;h3 id=&#34;権限を追加する&#34;&gt;(権限を追加する)&lt;/h3&gt;
+&lt;p&gt;後から権限を追加したくなるケースはどうするか?
+scopeを変えたいならば、node-poolsを作り変える事しかできない&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 新規作成
+gcloud container node-pools create new-pools --cluster pubsub-test --scopes=gke-default,https://www.googleapis.com/auth/pubsub,https://www.googleapis.com/auth/something
+# 古いnodeを削除
+gcloud container node-pools delete old-pools --cluster pubsub-test
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;デプロイ&#34;&gt;デプロイ&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;kubectl apply -f cloud-pubsub/deployment/pubsub.yaml
+kubectl get po
+NAME                     READY   STATUS    RESTARTS   AGE
+pubsub-8cb8475c8-tvxwv   1/1     Running   0          95s
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;確認&#34;&gt;確認&lt;/h2&gt;
+&lt;h3 id=&#34;publish&#34;&gt;Publish&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gcloud pubsub topics publish echo --message=&amp;#34;Hello, world\!&amp;#34;
+messageIds:
+- &amp;#39;3909513331830980&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;subscribe&#34;&gt;Subscribe&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;kubectl logs -f pubsub-8cb8475c8-tvxwv
+Pulling messages from Pub/Sub subscription...
+[2022-03-21 06:37:27.265195] Received message: ID=3909513331830980 Data=b&amp;#39;Hello, world!&amp;#39;
+[2022-03-21 06:37:27.265294] Processing: 3909513331830980
+[2022-03-21 06:37:30.267957] Processed: 3909513331830980
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;2-serviceaccountを用いた認証&#34;&gt;2. ServiceAccountを用いた認証&lt;/h1&gt;
+&lt;p&gt;Googleが推奨しているのはこちら
+&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform#use_workload_identity&#34;&gt;サービス アカウントを使用した Google Cloud への認証&lt;/a&gt;と同じ事をしているだけなので説明は省く&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

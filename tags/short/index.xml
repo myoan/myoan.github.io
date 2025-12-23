@@ -1,33 +1,76 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>short on yoan.log</title>
+    <title>Short on yoan.log</title>
     <link>https://myoan.github.io/tags/short/</link>
-    <description>Recent content in short on yoan.log</description>
+    <description>Recent content in Short on yoan.log</description>
     <image>
+      <title>yoan.log</title>
       <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 12 Jul 2022 02:56:03 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/short/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.153.1</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 Jul 2022 02:56:03 +0900</lastBuildDate>
+    <atom:link href="https://myoan.github.io/tags/short/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ansible</title>
       <link>https://myoan.github.io/posts/ansible/</link>
       <pubDate>Tue, 12 Jul 2022 02:56:03 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/ansible/</guid>
-      <description>ansibleの使い方 install brew install ansible 接続確認 ❯ cat hosts [server] xxx.xxx.xxx.xxx 実行
-❯ ansible server -i hosts -m ping -u ubuntu 18.183.206.58 | SUCCESS =&amp;gt; { &amp;quot;ansible_facts&amp;quot;: { &amp;quot;discovered_interpreter_python&amp;quot;: &amp;quot;/usr/bin/python3&amp;quot; }, &amp;quot;changed&amp;quot;: false, &amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot; } playbook適用 ❯ cat playbook.yml --- - name: Update web servers hosts: server remote_user: ubuntu become: true tasks: - name: Run the equivalent of &amp;quot;apt-get update&amp;quot; as a separate step ansible.builtin.apt: update_cache: yes syntax-check ansible-playbook playbook.</description>
+      <description>&lt;h1 id=&#34;ansibleの使い方&#34;&gt;ansibleの使い方&lt;/h1&gt;
+&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;brew install ansible
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;接続確認&#34;&gt;接続確認&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ cat hosts
+[server]
+xxx.xxx.xxx.xxx
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;実行&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ ansible server -i hosts -m ping -u ubuntu
+18.183.206.58 | SUCCESS =&amp;gt; {
+    &amp;#34;ansible_facts&amp;#34;: {
+        &amp;#34;discovered_interpreter_python&amp;#34;: &amp;#34;/usr/bin/python3&amp;#34;
+    },
+    &amp;#34;changed&amp;#34;: false,
+    &amp;#34;ping&amp;#34;: &amp;#34;pong&amp;#34;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;playbook適用&#34;&gt;playbook適用&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ cat playbook.yml
+---
+- name: Update web servers
+  hosts: server
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+  - name: Run the equivalent of &amp;#34;apt-get update&amp;#34; as a separate step
+    ansible.builtin.apt:
+      update_cache: yes
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;syntax-check&#34;&gt;syntax-check&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ansible-playbook playbook.yml --syntax-check
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;dryrun&#34;&gt;dryrun&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ansible-playbook playbook.yml -i hosts -C -D
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;適用&#34;&gt;適用&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ansible-playbook playbook.yml -i hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;playbookの探し方&#34;&gt;playbookの探し方&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html&#34;&gt;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Journalctl の使い方</title>
       <link>https://myoan.github.io/posts/journalctl/</link>
       <pubDate>Sun, 10 Jul 2022 23:53:52 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/journalctl/</guid>
-      <description>忙しい人向け journalctl -u mariadb.service -xe serviceを指定する journalctl -u mariadb.service tailする journalctl -e tail -f journalctl -f 詳細情報 journalctl -xe </description>
+      <description>&lt;h3 id=&#34;忙しい人向け&#34;&gt;忙しい人向け&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -u mariadb.service -xe
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;serviceを指定する&#34;&gt;serviceを指定する&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -u mariadb.service
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tailする&#34;&gt;tailする&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -e
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tail--f&#34;&gt;tail -f&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -f
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;詳細情報&#34;&gt;詳細情報&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -xe
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
-    
   </channel>
 </rss>

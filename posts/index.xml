@@ -5,170 +5,654 @@
     <link>https://myoan.github.io/posts/</link>
     <description>Recent content in Posts on yoan.log</description>
     <image>
+      <title>yoan.log</title>
       <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 23 Mar 2023 19:43:32 +0900</lastBuildDate><atom:link href="https://myoan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.153.1</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 23 Mar 2023 19:43:32 +0900</lastBuildDate>
+    <atom:link href="https://myoan.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git Submodule系操作まとめ</title>
       <link>https://myoan.github.io/posts/git-submodule-update/</link>
       <pubDate>Thu, 23 Mar 2023 19:43:32 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/git-submodule-update/</guid>
-      <description>git submoduleのコマンドをよく調べるのでまとめてしまう
-https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB
-を参考にしています
-1. 初期化する git submodule init 2. 更新する git submodule update 1, 2を合わせて
-git submodule update --init 3. diffが意味不明 yoan $ git diff diff --git a/submodule b/submodule index aaaaaaaaaa..bbbbbbbb 160000 --- a/submodule +++ b/submodule @@ -1 +1 @@ -Subproject commit aaaaaaa... +Subproject commit bbbbbbb... diff差分がよくわからないときは--submoduleオプションを追加する
-yoan $ git diff --submodule Submodule /submodule aaaaaaaaaaa..bbbbbbbbbbb (rewind): &amp;lt; Merge pull request #2 from hogehoge defaultで有効化もできる
-yoan $ git config --global diff.</description>
+      <description>&lt;p&gt;git submoduleのコマンドをよく調べるのでまとめてしまう&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB&#34;&gt;https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;を参考にしています&lt;/p&gt;
+&lt;h1 id=&#34;1-初期化する&#34;&gt;1. 初期化する&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git submodule init
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;2-更新する&#34;&gt;2. 更新する&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git submodule update
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;1, 2を合わせて&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git submodule update --init
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;3-diffが意味不明&#34;&gt;3. diffが意味不明&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;yoan $ git diff
+diff --git a/submodule b/submodule
+index aaaaaaaaaa..bbbbbbbb 160000
+--- a/submodule
++++ b/submodule
+@@ -1 +1 @@
+-Subproject commit aaaaaaa...
++Subproject commit bbbbbbb...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;diff差分がよくわからないときは&lt;code&gt;--submodule&lt;/code&gt;オプションを追加する&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;yoan $ git diff --submodule 
+Submodule /submodule aaaaaaaaaaa..bbbbbbbbbbb (rewind):
+  &amp;lt; Merge pull request #2 from hogehoge
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;defaultで有効化もできる&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;yoan $ git config --global diff.submodule log
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;4-間違ったcommitになってしまう&#34;&gt;4. 間違ったcommitになってしまう&lt;/h1&gt;
+&lt;p&gt;この記事を書こうと思った本命。
+3の例でdiffに&lt;code&gt;(rewind)&lt;/code&gt;が出ている (rewindは巻き戻りという意味)
+実際、originでは&lt;code&gt;aaaaaaaaaaa&lt;/code&gt;が最新なのになぜかlocalでは一つ前の&lt;code&gt;bbbbbbbbbb&lt;/code&gt;に変えようとしている
+この状態が何故起こったのかはよくわからないが&lt;code&gt;submodule update&lt;/code&gt;をしても無駄だった&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Ansible</title>
       <link>https://myoan.github.io/posts/ansible/</link>
       <pubDate>Tue, 12 Jul 2022 02:56:03 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/ansible/</guid>
-      <description>ansibleの使い方 install brew install ansible 接続確認 ❯ cat hosts [server] xxx.xxx.xxx.xxx 実行
-❯ ansible server -i hosts -m ping -u ubuntu 18.183.206.58 | SUCCESS =&amp;gt; { &amp;quot;ansible_facts&amp;quot;: { &amp;quot;discovered_interpreter_python&amp;quot;: &amp;quot;/usr/bin/python3&amp;quot; }, &amp;quot;changed&amp;quot;: false, &amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot; } playbook適用 ❯ cat playbook.yml --- - name: Update web servers hosts: server remote_user: ubuntu become: true tasks: - name: Run the equivalent of &amp;quot;apt-get update&amp;quot; as a separate step ansible.builtin.apt: update_cache: yes syntax-check ansible-playbook playbook.</description>
+      <description>&lt;h1 id=&#34;ansibleの使い方&#34;&gt;ansibleの使い方&lt;/h1&gt;
+&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;brew install ansible
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;接続確認&#34;&gt;接続確認&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ cat hosts
+[server]
+xxx.xxx.xxx.xxx
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;実行&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ ansible server -i hosts -m ping -u ubuntu
+18.183.206.58 | SUCCESS =&amp;gt; {
+    &amp;#34;ansible_facts&amp;#34;: {
+        &amp;#34;discovered_interpreter_python&amp;#34;: &amp;#34;/usr/bin/python3&amp;#34;
+    },
+    &amp;#34;changed&amp;#34;: false,
+    &amp;#34;ping&amp;#34;: &amp;#34;pong&amp;#34;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;playbook適用&#34;&gt;playbook適用&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;❯ cat playbook.yml
+---
+- name: Update web servers
+  hosts: server
+  remote_user: ubuntu
+  become: true
+
+  tasks:
+  - name: Run the equivalent of &amp;#34;apt-get update&amp;#34; as a separate step
+    ansible.builtin.apt:
+      update_cache: yes
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;syntax-check&#34;&gt;syntax-check&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ansible-playbook playbook.yml --syntax-check
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;dryrun&#34;&gt;dryrun&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ansible-playbook playbook.yml -i hosts -C -D
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;適用&#34;&gt;適用&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ansible-playbook playbook.yml -i hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;playbookの探し方&#34;&gt;playbookの探し方&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html&#34;&gt;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Journalctl の使い方</title>
       <link>https://myoan.github.io/posts/journalctl/</link>
       <pubDate>Sun, 10 Jul 2022 23:53:52 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/journalctl/</guid>
-      <description>忙しい人向け journalctl -u mariadb.service -xe serviceを指定する journalctl -u mariadb.service tailする journalctl -e tail -f journalctl -f 詳細情報 journalctl -xe </description>
+      <description>&lt;h3 id=&#34;忙しい人向け&#34;&gt;忙しい人向け&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -u mariadb.service -xe
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;serviceを指定する&#34;&gt;serviceを指定する&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -u mariadb.service
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tailする&#34;&gt;tailする&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -e
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tail--f&#34;&gt;tail -f&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -f
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;詳細情報&#34;&gt;詳細情報&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;journalctl -xe
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
-    
     <item>
       <title>Multiplayer Game Programming読本</title>
       <link>https://myoan.github.io/posts/geometry-compression/</link>
       <pubDate>Wed, 11 May 2022 10:00:42 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/geometry-compression/</guid>
-      <description>multiplayer game programmingという本を気になる部分だけつまみ食いして読んでいる 今日はChapter 4にあった&amp;quot;Compression&amp;quot;をまとめる 英語の見出しは本文のタイトルを引用し、日本語の見出しは私がみやすさでつけたもの
-Compression マルチプレイのリアルタイム性のあるゲームであればあるほど、通信するオブジェクトと頻度が増え必要な通信帯域が増加する そのため、可能な限り無駄な情報は削減して通信を行う必要がある この章では低レベルな圧縮方法の紹介を行っている
-Sparse Array Compression 本で扱っているサンプルゲームでは名前を128byteまで許容されている。 名前の配列に128byteの配列を利用するのがプログラムとしては妥当だが、128byte使い切らないユーザーも含まれるため不要なスペースができてしまう。 そこで、名前長 + 名前というバイト列にする事で余計なスペースを除去するという圧縮方法
-Entropy Encoding 以下の章ではオブジェクトの方向と回転を表す7つのfloatの圧縮方法について記載されている 参考書ではbyte配列を渡す想定をしているが、理解を助けるために下記のような構造体の形式で書いていく
-// 合計 28byte type XXX struct { type Location struct { x float y float z float } type Quartunion struct { qx float qy float qz float qw float } } 頻出する状態には短いデータを与えましょう。という内容 サンプルゲームではキャラがほとんどY=0のポジションにいる特性を利用してY=0ならばtrue, そうでなければfalse+floatの情報を送っている
-// 合計 24byte + 1bit type XXX struct { type Location struct { x float ybit bool y float z float } type Quartunion struct { qx float qy float qz float qw float } } Fixed point Locationの他の2軸の圧縮をする この内容はゲームの特性と相談になるが、整数値にすることでサイズを減らそうというもの 本では縦横に40000(おそらくpx)が表現できれば良いため、int16でよいという内容だった</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/Multiplayer-Game-Programming-Architecting-Networked-ebook/dp/B0189RXWJQ&#34;&gt;multiplayer game programming&lt;/a&gt;という本を気になる部分だけつまみ食いして読んでいる
+今日はChapter 4にあった&amp;quot;Compression&amp;quot;をまとめる
+英語の見出しは本文のタイトルを引用し、日本語の見出しは私がみやすさでつけたもの&lt;/p&gt;
+&lt;h2 id=&#34;compression&#34;&gt;Compression&lt;/h2&gt;
+&lt;p&gt;マルチプレイのリアルタイム性のあるゲームであればあるほど、通信するオブジェクトと頻度が増え必要な通信帯域が増加する
+そのため、可能な限り無駄な情報は削減して通信を行う必要がある
+この章では低レベルな圧縮方法の紹介を行っている&lt;/p&gt;
+&lt;h3 id=&#34;sparse-array-compression&#34;&gt;Sparse Array Compression&lt;/h3&gt;
+&lt;p&gt;本で扱っているサンプルゲームでは名前を128byteまで許容されている。
+名前の配列に128byteの配列を利用するのがプログラムとしては妥当だが、128byte使い切らないユーザーも含まれるため不要なスペースができてしまう。
+そこで、名前長 + 名前というバイト列にする事で余計なスペースを除去するという圧縮方法&lt;/p&gt;
+&lt;h3 id=&#34;entropy-encoding&#34;&gt;Entropy Encoding&lt;/h3&gt;
+&lt;p&gt;以下の章ではオブジェクトの方向と回転を表す7つのfloatの圧縮方法について記載されている
+参考書ではbyte配列を渡す想定をしているが、理解を助けるために下記のような構造体の形式で書いていく&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// 合計 28byte
+type XXX struct {
+	type Location struct {
+		x float
+		y float
+		z float
+	}
+	type Quartunion struct {
+		qx float 
+		qy float
+		qz float
+		qw float
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;頻出する状態には短いデータを与えましょう。という内容
+サンプルゲームではキャラがほとんどY=0のポジションにいる特性を利用してY=0ならば&lt;code&gt;true&lt;/code&gt;, そうでなければ&lt;code&gt;false+float&lt;/code&gt;の情報を送っている&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// 合計 24byte + 1bit
+type XXX struct {
+	type Location struct {
+		x float
+		ybit bool
+		y float
+		z float
+	}
+	type Quartunion struct {
+		qx float 
+		qy float
+		qz float
+		qw float
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;fixed-point&#34;&gt;Fixed point&lt;/h2&gt;
+&lt;p&gt;Locationの他の2軸の圧縮をする
+この内容はゲームの特性と相談になるが、整数値にすることでサイズを減らそうというもの
+本では縦横に40000(おそらくpx)が表現できれば良いため、int16でよいという内容だった&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>GKEからのGCPへの認証をまとめる</title>
       <link>https://myoan.github.io/posts/gke-gcp-auth/</link>
       <pubDate>Mon, 21 Mar 2022 11:19:25 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/gke-gcp-auth/</guid>
-      <description>GKE cluster作成時にも指定できるアクセススコープはレガシー扱いになっている https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes#what_are_access_scopes
-とはいえチュートリアルには--scopeを利用したものも見受けられる
- https://agones.dev/site/docs/installation/creating-cluster/gke/  アクセススコープは手軽だが細かい設定ができない。ServiceAccountを使うと必要最低限の権限のみ付与する事ができるので、セキュリティの品質が保たれるためGoogleとしてはServiceAccountを推している。という認識でいいのかな.
-GKEの権限関係で迷わないよう、サービス アカウントを使用した Google Cloud への認証を題材にやり方を整理する
- アクセススコープを用いた認証 ServiceAccountを用いた認証 (おまけ) ServiceAccount認証にWorkload Identityを用いる  事前準備 題材に則りpubsub topicを作成し、publishとsubscribeができるか検証する
-pubsub topicの作成 gcloud pubsub topics create echo gcloud pubsub subscriptions create echo-read --topic=echo ソースコード取得 git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples cd kubernetes-engine-samples cloud-pubsub/deployment以下のyamlファイルを実際に適応していく
-1. アクセススコープを用いた認証 クラスタ作成
-gcloud container clusters create pubsub-test --scopes=gke-default,https://www.googleapis.com/auth/pubsub --zone asia-northeast1-a scope オプションについて --scopesオプションをつけることでクラスタに権限を付与できる gke-defaultは下記のscopeをまとめたエイリアスになる
-Alias URI gke-default https://www.googleapis.com/auth/devstorage.read_only https://www.googleapis.com/auth/logging.write https://www.googleapis.com/auth/monitoring https://www.googleapis.com/auth/service.management.readonly https://www.googleapis.com/auth/servicecontrol https://www.googleapis.com/auth/trace.append gcloud container clusters create --helpをすると他のエイリアスもあるのでみてみると良い (webのmanにも載っている)</description>
+      <description>&lt;p&gt;GKE cluster作成時にも指定できるアクセススコープはレガシー扱いになっている
+&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes#what_are_access_scopes&#34;&gt;https://cloud.google.com/kubernetes-engine/docs/how-to/access-scopes#what_are_access_scopes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;とはいえチュートリアルには&lt;code&gt;--scope&lt;/code&gt;を利用したものも見受けられる&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://agones.dev/site/docs/installation/creating-cluster/gke/&#34;&gt;https://agones.dev/site/docs/installation/creating-cluster/gke/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;アクセススコープは手軽だが細かい設定ができない。ServiceAccountを使うと必要最低限の権限のみ付与する事ができるので、セキュリティの品質が保たれるためGoogleとしてはServiceAccountを推している。という認識でいいのかな.&lt;/p&gt;
+&lt;p&gt;GKEの権限関係で迷わないよう、&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform#use_workload_identity&#34;&gt;サービス アカウントを使用した Google Cloud への認証&lt;/a&gt;を題材にやり方を整理する&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;アクセススコープを用いた認証&lt;/li&gt;
+&lt;li&gt;ServiceAccountを用いた認証&lt;/li&gt;
+&lt;li&gt;(おまけ) ServiceAccount認証にWorkload Identityを用いる&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;事前準備&#34;&gt;事前準備&lt;/h1&gt;
+&lt;p&gt;題材に則りpubsub topicを作成し、publishとsubscribeができるか検証する&lt;/p&gt;
+&lt;h2 id=&#34;pubsub-topicの作成&#34;&gt;pubsub topicの作成&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gcloud pubsub topics create echo
+gcloud pubsub subscriptions create echo-read --topic=echo
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;ソースコード取得&#34;&gt;ソースコード取得&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
+cd kubernetes-engine-samples
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;cloud-pubsub/deployment&lt;/code&gt;以下のyamlファイルを実際に適応していく&lt;/p&gt;
+&lt;h1 id=&#34;1-アクセススコープを用いた認証&#34;&gt;1. アクセススコープを用いた認証&lt;/h1&gt;
+&lt;p&gt;クラスタ作成&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gcloud container clusters create pubsub-test --scopes=gke-default,https://www.googleapis.com/auth/pubsub --zone
+asia-northeast1-a
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;scope-オプションについて&#34;&gt;scope オプションについて&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;--scopes&lt;/code&gt;オプションをつけることでクラスタに権限を付与できる
+&lt;code&gt;gke-default&lt;/code&gt;は下記のscopeをまとめたエイリアスになる&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Alias       URI
+gke-default https://www.googleapis.com/auth/devstorage.read_only
+            https://www.googleapis.com/auth/logging.write
+            https://www.googleapis.com/auth/monitoring
+            https://www.googleapis.com/auth/service.management.readonly
+            https://www.googleapis.com/auth/servicecontrol
+            https://www.googleapis.com/auth/trace.append
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;gcloud container clusters create --help&lt;/code&gt;をすると他のエイリアスもあるのでみてみると良い
+(&lt;a href=&#34;https://cloud.google.com/sdk/gcloud/reference/container/clusters/create&#34;&gt;webのman&lt;/a&gt;にも載っている)&lt;/p&gt;
+&lt;p&gt;また複数指定したいのでカンマ区切りで指定している
+&lt;a href=&#34;https://developers.google.com/identity/protocols/oauth2/scopes&#34;&gt;scopeの一覧&lt;/a&gt;から選んで付与していく.&lt;/p&gt;
+&lt;h3 id=&#34;権限を追加する&#34;&gt;(権限を追加する)&lt;/h3&gt;
+&lt;p&gt;後から権限を追加したくなるケースはどうするか?
+scopeを変えたいならば、node-poolsを作り変える事しかできない&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 新規作成
+gcloud container node-pools create new-pools --cluster pubsub-test --scopes=gke-default,https://www.googleapis.com/auth/pubsub,https://www.googleapis.com/auth/something
+# 古いnodeを削除
+gcloud container node-pools delete old-pools --cluster pubsub-test
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;デプロイ&#34;&gt;デプロイ&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;kubectl apply -f cloud-pubsub/deployment/pubsub.yaml
+kubectl get po
+NAME                     READY   STATUS    RESTARTS   AGE
+pubsub-8cb8475c8-tvxwv   1/1     Running   0          95s
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;確認&#34;&gt;確認&lt;/h2&gt;
+&lt;h3 id=&#34;publish&#34;&gt;Publish&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gcloud pubsub topics publish echo --message=&amp;#34;Hello, world\!&amp;#34;
+messageIds:
+- &amp;#39;3909513331830980&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;subscribe&#34;&gt;Subscribe&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;kubectl logs -f pubsub-8cb8475c8-tvxwv
+Pulling messages from Pub/Sub subscription...
+[2022-03-21 06:37:27.265195] Received message: ID=3909513331830980 Data=b&amp;#39;Hello, world!&amp;#39;
+[2022-03-21 06:37:27.265294] Processing: 3909513331830980
+[2022-03-21 06:37:30.267957] Processed: 3909513331830980
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;2-serviceaccountを用いた認証&#34;&gt;2. ServiceAccountを用いた認証&lt;/h1&gt;
+&lt;p&gt;Googleが推奨しているのはこちら
+&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform#use_workload_identity&#34;&gt;サービス アカウントを使用した Google Cloud への認証&lt;/a&gt;と同じ事をしているだけなので説明は省く&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>coreutilsのソースコードをDLする方法</title>
       <link>https://myoan.github.io/posts/read-coreutils/</link>
       <pubDate>Sat, 11 Dec 2021 18:04:58 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/read-coreutils/</guid>
-      <description>aspのinstall $ sudo pacman asp aspの簡単な使い方 # packageの一覧 $ asp list-all # packageの取得 $ asp checkout coreutils coreutilsのダウンロード $ asp checokut coreutils $ cd coreutils $ makepkg -o # buildはせずDLだけするオプション 詰まったところ GPGキーがverifiyされない makepkgの実行中で下記のようなエラーが発生した
- -&amp;gt; Found 01-fix-fs72253.patch ==&amp;gt; Validating source files with sha256sums... coreutils-9.0.tar.xz ... Passed coreutils-9.0.tar.xz.sig ... Skipped 01-fix-fs72253.patch ... Passed ==&amp;gt; Verifying source file signatures with gpg... coreutils-9.0.tar.xz ... FAILED (unknown public key DF6FD971306037D9) ==&amp;gt; ERROR: One or more PGP signatures could not be verified!</description>
+      <description>&lt;h1 id=&#34;aspのinstall&#34;&gt;aspのinstall&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo pacman asp
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;aspの簡単な使い方&#34;&gt;aspの簡単な使い方&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# packageの一覧
+$ asp list-all
+# packageの取得
+$ asp checkout coreutils
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;coreutilsのダウンロード&#34;&gt;coreutilsのダウンロード&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ asp checokut coreutils
+$ cd coreutils
+$ makepkg -o # buildはせずDLだけするオプション
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;詰まったところ&#34;&gt;詰まったところ&lt;/h1&gt;
+&lt;h2 id=&#34;gpgキーがverifiyされない&#34;&gt;GPGキーがverifiyされない&lt;/h2&gt;
+&lt;p&gt;makepkgの実行中で下記のようなエラーが発生した&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  -&amp;gt; Found 01-fix-fs72253.patch                                          
+==&amp;gt; Validating source files with sha256sums...                           
+    coreutils-9.0.tar.xz ... Passed                                      
+    coreutils-9.0.tar.xz.sig ... Skipped                                 
+    01-fix-fs72253.patch ... Passed                                      
+==&amp;gt; Verifying source file signatures with gpg...                         
+    coreutils-9.0.tar.xz ... FAILED (unknown public key DF6FD971306037D9)
+==&amp;gt; ERROR: One or more PGP signatures could not be verified!             
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;https://lists.gnu.org/archive/html/info-gnu/2021-09/msg00010.html&#34;&gt;GNUのページ&lt;/a&gt;に書いてあるコマンドを実行する&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kotest Listener</title>
       <link>https://myoan.github.io/posts/kotest-listener/</link>
       <pubDate>Fri, 04 Jun 2021 12:09:52 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/kotest-listener/</guid>
-      <description>kotest kotlinでテストFWを増やしている
-Listenerの確認 TestListener
-beforeAnyとbeforeTest, afterAnyとafterTestは同じらしいので一つにまとめます
-import io.kotest.core.spec.style.DescribeSpec import io.kotest.matchers.shouldBe class ListenerSpec: DescribeSpec({ describe(&amp;#34;listener hook check&amp;#34;) { beforeContainer { println(&amp;#34;beforeContainer&amp;#34;) } afterContainer { println(&amp;#34;afterContainer&amp;#34;) } beforeEach { println(&amp;#34;beforeEach&amp;#34;) } afterEach { println(&amp;#34;afterEach&amp;#34;) } beforeTest { println(&amp;#34;beforeAny/beforeTest&amp;#34;) } afterTest { println(&amp;#34;afterAny/afterTest&amp;#34;) } beforeSpec { println(&amp;#34;beforeSpec&amp;#34;) } afterSpec { println(&amp;#34;afterSpec&amp;#34;) } context(&amp;#34;Simple&amp;#34;) { it(&amp;#34;Simple test&amp;#34;) { println(&amp;#34;--- Simple test&amp;#34;) 1 shouldBe 1 } } } }) beforeContainer beforeAny/beforeTest beforeEach beforeAny/beforeTest --- Simple test afterEach afterAny/afterTest afterContainer afterAny/afterTest afterSpec  before, afterともにContainer &amp;gt; Any/Test, Each &amp;gt; Any/Testの流れになっている  beforeとafterでstackの様にコールされるわけではない   beforeSpecが呼び出されない  詳細を調べる    class ListenerSpec: DescribeSpec({ // .</description>
+      <description>&lt;h2 id=&#34;kotest&#34;&gt;kotest&lt;/h2&gt;
+&lt;p&gt;kotlinでテストFWを増やしている&lt;/p&gt;
+&lt;h2 id=&#34;listenerの確認&#34;&gt;Listenerの確認&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://kotest.io/docs/framework/listeners.html&#34;&gt;TestListener&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;beforeAny&lt;/code&gt;と&lt;code&gt;beforeTest&lt;/code&gt;, &lt;code&gt;afterAny&lt;/code&gt;と&lt;code&gt;afterTest&lt;/code&gt;は同じらしいので一つにまとめます&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kt&#34; data-lang=&#34;kt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; io.kotest.core.spec.style.DescribeSpec
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; io.kotest.matchers.shouldBe
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ListenerSpec&lt;/span&gt;: DescribeSpec({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;listener hook check&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        beforeContainer {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;beforeContainer&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        afterContainer {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;afterContainer&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        beforeEach {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;beforeEach&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        afterEach {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;afterEach&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        beforeTest {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;beforeAny/beforeTest&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        afterTest {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;afterAny/afterTest&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        beforeSpec {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;beforeSpec&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        afterSpec {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;afterSpec&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        context(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Simple&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Simple test&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--- Simple test&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; shouldBe &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;beforeContainer
+beforeAny/beforeTest
+beforeEach
+beforeAny/beforeTest
+--- Simple test
+afterEach
+afterAny/afterTest
+afterContainer
+afterAny/afterTest
+afterSpec
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;before, afterともに&lt;code&gt;Container &amp;gt; Any/Test&lt;/code&gt;, &lt;code&gt;Each &amp;gt; Any/Test&lt;/code&gt;の流れになっている
+&lt;ul&gt;
+&lt;li&gt;beforeとafterでstackの様にコールされるわけではない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;beforeSpecが呼び出されない
+&lt;ul&gt;
+&lt;li&gt;詳細を調べる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kt&#34; data-lang=&#34;kt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ListenerSpec&lt;/span&gt;: DescribeSpec({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;listener hook check&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Describe&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Simple test&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--- Simple test&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; shouldBe &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;beforeContainer
+beforeAny/beforeTest
+beforeEach
+beforeAny/beforeTest
+--- Simple test
+afterEach
+afterAny/afterTest
+afterContainer
+afterAny/afterTest
+afterSpec
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Listener順序において、describeとcontextの差異は見られない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kt&#34; data-lang=&#34;kt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ListenerSpec&lt;/span&gt;: DescribeSpec({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;listener hook check&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Describe&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;List 1 test&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--- List-1 test&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; shouldBe &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;List 2 test&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--- List-2 test&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; shouldBe &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;beforeContainer
+beforeAny/beforeTest
+beforeEach
+beforeAny/beforeTest
+--- List-1 test
+afterEach
+afterAny/afterTest
+beforeEach
+beforeAny/beforeTest
+--- List-2 test
+afterEach
+afterAny/afterTest
+afterContainer
+afterAny/afterTest
+afterSpec
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Containerが消えた&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kt&#34; data-lang=&#34;kt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ListenerSpec&lt;/span&gt;: DescribeSpec({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;listener hook check&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Describe&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        context(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Context&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Simple test&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--- Simple test&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; shouldBe &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;beforeContainer
+beforeAny
+beforeTest
+beforeContainer
+beforeAny
+beforeTest
+beforeEach
+beforeAny
+beforeTest
+--- Simple test
+afterEach
+afterAny
+afterTest
+afterContainer
+afterAny
+afterTest
+afterContainer
+afterAny
+afterTest
+afterSpec
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;nestするとcontainer, any, testが追加される&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kt&#34; data-lang=&#34;kt&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ListenerSpec&lt;/span&gt;: DescribeSpec({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;listener hook check&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Describe&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        describe(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Describe&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#66d9ef&#34;&gt;it&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Simple test&amp;#34;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--- Simple test&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; shouldBe &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;beforeContainer
+beforeAny
+beforeTest
+beforeContainer
+beforeAny
+beforeTest
+beforeEach
+beforeAny
+beforeTest
+--- Simple test
+afterEach
+afterAny
+afterTest
+afterContainer
+afterAny
+afterTest
+afterContainer
+afterAny
+afterTest
+afterSpec
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
-    
     <item>
       <title>vscode extensionのTreeViewを触ってみる</title>
       <link>https://myoan.github.io/posts/vscode-tree-view/</link>
       <pubDate>Mon, 19 Apr 2021 09:07:06 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/vscode-tree-view/</guid>
-      <description>チュートリアルを行う https://code.visualstudio.com/api/extension-guides/tree-view
-チュートリアルではサイドバーにnode dependenciesを表示し、各packageのpackage.jsonを表示するサンプルを作っている。 しかしチュートリアルをそのまま試してもEditorにpackage.jsonの内容が表示されなかった。
-その理由が知りたくて色々と調査した
-結果として、githubのサンプルを実行するとわかるが、クリック時に発火するコマンドを指定しないと行けなかった
-コマンド発火のコードリーディング TreeViewをみると、チュートリアルに加えてvscode.Commandを付与している
-return new Dependency(moduleName, version, vscode.TreeItemCollapsibleState.None, { command: &amp;#39;extension.openPackageOnNpm&amp;#39;, title: &amp;#39;&amp;#39;, arguments: [moduleName] }); 併せてopenPackageOnNpmの登録もチュートリアルから追加されている
-vscode.commands.registerCommand(&amp;#39;extension.openPackageOnNpm&amp;#39;, moduleName =&amp;gt; vscode.commands.executeCommand(&amp;#39;vscode.open&amp;#39;, vscode.Uri.parse(`https://www.npmjs.com/package/${moduleName}`))); 実際、これらを実装するとクリックしたらNPMのwebpageに飛ぶ挙動が確認できた
-TreeItemオブジェクトはcommandをフィールドに保存しているが、自クラスでフィールドを操作している形跡はない つまり、vscode本体でTreeItem.commandを呼び出していると考えられる
-vscode本体をコードリーディング TreeItemの定義はこちら command自体は存在している よって、vscode本体でTreeItem.commandを呼び出す仮説は正しそう
-https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts#L9136
-この説明を見るに、clickをフックしてcommandを呼んでいる模様。
-async resolveTreeItem(treeItemHandle: string, token: vscode.CancellationToken): Promise&amp;lt;ITreeItem | undefined&amp;gt; { if (!this.dataProvider.resolveTreeItem) { return; } const element = this.elements.get(treeItemHandle); if (element) { const node = this.nodes.get(element); if (node) { const resolve = await this.dataProvider.resolveTreeItem(node.extensionItem, element, token) ?</description>
+      <description>&lt;h2 id=&#34;チュートリアルを行う&#34;&gt;チュートリアルを行う&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/api/extension-guides/tree-view&#34;&gt;https://code.visualstudio.com/api/extension-guides/tree-view&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;チュートリアルではサイドバーにnode dependenciesを表示し、各packageのpackage.jsonを表示するサンプルを作っている。
+しかしチュートリアルをそのまま試してもEditorにpackage.jsonの内容が表示されなかった。&lt;/p&gt;
+&lt;p&gt;その理由が知りたくて色々と調査した&lt;/p&gt;
+&lt;p&gt;結果として、githubのサンプルを実行するとわかるが、クリック時に発火するコマンドを指定しないと行けなかった&lt;/p&gt;
+&lt;h2 id=&#34;コマンド発火のコードリーディング&#34;&gt;コマンド発火のコードリーディング&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/vscode-extension-samples/blob/main/tree-view-sample&#34;&gt;TreeView&lt;/a&gt;をみると、チュートリアルに加えて&lt;code&gt;vscode.Command&lt;/code&gt;を付与している&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Dependency&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;moduleName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;version&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;vscode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;TreeItemCollapsibleState&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;None&lt;/span&gt;, {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;extension.openPackageOnNpm&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;arguments&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; [&lt;span style=&#34;color:#a6e22e&#34;&gt;moduleName&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;});
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;併せて&lt;code&gt;openPackageOnNpm&lt;/code&gt;の登録もチュートリアルから追加されている&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;vscode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;commands&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;registerCommand&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;extension.openPackageOnNpm&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;moduleName&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;vscode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;commands&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;executeCommand&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;vscode.open&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;vscode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Uri&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;parse&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;`https://www.npmjs.com/package/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;moduleName&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;)));
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;実際、これらを実装するとクリックしたらNPMのwebpageに飛ぶ挙動が確認できた&lt;/p&gt;
+&lt;p&gt;TreeItemオブジェクトはcommandをフィールドに保存しているが、自クラスでフィールドを操作している形跡はない
+つまり、vscode本体でTreeItem.commandを呼び出していると考えられる&lt;/p&gt;
+&lt;h2 id=&#34;vscode本体をコードリーディング&#34;&gt;vscode本体をコードリーディング&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/vscode/blob/main/src/vs/workbench/api/common/extHostTypes.ts#L2221-L2240&#34;&gt;TreeItemの定義はこちら&lt;/a&gt;
+command自体は存在している
+よって、vscode本体で&lt;code&gt;TreeItem.command&lt;/code&gt;を呼び出す仮説は正しそう&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts#L9136&#34;&gt;https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts#L9136&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;この説明を見るに、clickをフックしてcommandを呼んでいる模様。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resolveTreeItem&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;treeItemHandle&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;token&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;vscode.CancellationToken&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Promise&lt;/span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;ITreeItem&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;undefined&lt;/span&gt;&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dataProvider&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;resolveTreeItem&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;elements&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;treeItemHandle&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;nodes&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resolve&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dataProvider&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;resolveTreeItem&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;extensionItem&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;token&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;??&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;extensionItem&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#75715e&#34;&gt;// Resolvable elements. Currently only tooltip and command.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;tooltip&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;getTooltip&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;resolve&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;tooltip&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;command&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;getCommand&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;disposableStore&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;resolve&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;command&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;node&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/vscode/blob/8aff878db2542eea2dfb571c8bb485118bbb3113/src/vs/workbench/api/common/extHostTreeViews.ts#L376-L392&#34;&gt;https://github.com/microsoft/vscode/blob/8aff878db2542eea2dfb571c8bb485118bbb3113/src/vs/workbench/api/common/extHostTreeViews.ts#L376-L392&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TreeItemを取得するときにクリックハンドラを&lt;code&gt;getCommand&lt;/code&gt;で取得していた&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>go getで取得したコマンドの名前を変更する</title>
       <link>https://myoan.github.io/posts/duplicate-command/</link>
       <pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/duplicate-command/</guid>
-      <description>yeomanを入れて実行したところエラー
-❯ yo code must specify 3 arguments 確認したところspannerのgeneratorであるyoがすでに入っていました&amp;hellip;
-❯ yo help yo is a command-line tool to generate Go code for Google Cloud Spanner. (混乱を避けるため、以降ではコードブロック以外yoはspannerのコードジェネレートツールを指します)
-両方利用したかったのでspanner generatorのyoを別名に書き換える方針で決めました。 その名もgoyoです(ババーン)
-本題 ではどうやったらgo getで取得したコマンド名を変えられるのか？
-go getのオプションを探しましたがありませんでした
-そこで仕方なくyoの名前自体を変更します
-yoはバイナリが入っていると思ったらシェルスクリプトでした (goenvを使っているとそうなる？)
-❯ file ~/.anyenv/envs/goenv/shims/yo /Users/motoki.yoan/.anyenv/envs/goenv/shims/yo: Bourne-Again shell script text executable, ASCII text ❯ cat ~/.anyenv/envs/goenv/shims/yo #!/usr/bin/env bash set -e [ -n &amp;#34;$GOENV_DEBUG&amp;#34; ] &amp;amp;&amp;amp; set -x program=&amp;#34;${0##*/}&amp;#34; if [[ &amp;#34;$program&amp;#34; = &amp;#34;go&amp;#34;* ]]; then for arg; do case &amp;#34;$arg&amp;#34; in -c* | -- ) break ;; */* ) if [ -f &amp;#34;$arg&amp;#34; ]; then export GOENV_FILE_ARG=&amp;#34;$arg&amp;#34; break fi ;; esac done fi export GOENV_ROOT=&amp;#34;/Users/me/.</description>
+      <description>&lt;p&gt;yeomanを入れて実行したところエラー&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ yo code
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;must specify &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; arguments
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;確認したところspannerのgeneratorである&lt;a href=&#34;https://github.com/cloudspannerecosystem/yo&#34;&gt;yo&lt;/a&gt;がすでに入っていました&amp;hellip;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ yo help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yo is a command-line tool to generate Go code &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; Google Cloud Spanner.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(混乱を避けるため、以降ではコードブロック以外yoはspannerのコードジェネレートツールを指します)&lt;/p&gt;
+&lt;p&gt;両方利用したかったのでspanner generatorの&lt;code&gt;yo&lt;/code&gt;を別名に書き換える方針で決めました。
+その名も&lt;code&gt;goyo&lt;/code&gt;です(ババーン)&lt;/p&gt;
+&lt;h1 id=&#34;本題&#34;&gt;本題&lt;/h1&gt;
+&lt;p&gt;ではどうやったら&lt;code&gt;go get&lt;/code&gt;で取得したコマンド名を変えられるのか？&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://golang.org/cmd/go/#hdr-Add_dependencies_to_current_module_and_install_them&#34;&gt;go get&lt;/a&gt;のオプションを探しましたがありませんでした&lt;/p&gt;
+&lt;p&gt;そこで仕方なく&lt;code&gt;yo&lt;/code&gt;の名前自体を変更します&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yo&lt;/code&gt;はバイナリが入っていると思ったらシェルスクリプトでした
+(goenvを使っているとそうなる？)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ file ~/.anyenv/envs/goenv/shims/yo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/motoki.yoan/.anyenv/envs/goenv/shims/yo: Bourne-Again shell script text executable, ASCII text
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ cat ~/.anyenv/envs/goenv/shims/yo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set -e
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -n &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$GOENV_DEBUG&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; set -x
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;program&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;0##*/&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$program&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;go&amp;#34;&lt;/span&gt;* &lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; arg; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$arg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -c* | -- &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; break ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    */* &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -f &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$arg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        export GOENV_FILE_ARG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$arg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        break
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export GOENV_ROOT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Users/me/.anyenv/envs/goenv&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;exec &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Users/me/.anyenv/envs/goenv/libexec/goenv&amp;#34;&lt;/span&gt; exec &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$program&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$@&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;program&lt;/code&gt;が&lt;code&gt;yo&lt;/code&gt;を表しているように見えますが、&lt;code&gt;##*/&lt;/code&gt;が意味不明です&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>git restoreってなんだ</title>
       <link>https://myoan.github.io/posts/git-restore/</link>
       <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/git-restore/</guid>
-      <description>不適切なファイルをgit addしてしまいました
-weblog % git add content/posts/git-restore.md weblog % git status On branch main Your branch is up to date with &#39;origin/main&#39;. Changes to be committed: (use &amp;quot;git restore --staged &amp;lt;file&amp;gt;...&amp;quot; to unstage) new file: content/posts/git-restore.md こういった場合 git reset &amp;lt;FILE&amp;gt;を使ってunstagedにしていました
-が、上の例にもあるけど、git restoreを使えというサジェストが出ています そもそも気がついたときのログにはadd/rmのサジェストも出ています
-Changes not staged for commit: (use &amp;quot;git add/rm &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed) (use &amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)  git add/rm: commitされた内容を更新する git restore: working directoryの内容を破棄する  という違いがあるようです 今回のように間違ってaddしてしまった場合は、git restoreの方が正しそうです。 試してみます。</description>
+      <description>&lt;p&gt;不適切なファイルを&lt;code&gt;git add&lt;/code&gt;してしまいました&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;weblog % git add content/posts/git-restore.md 
+weblog % git status                          
+On branch main
+Your branch is up to date with &amp;#39;origin/main&amp;#39;.
+
+Changes to be committed:
+  (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage)
+        new file:   content/posts/git-restore.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;こういった場合 &lt;code&gt;git reset &amp;lt;FILE&amp;gt;&lt;/code&gt;を使ってunstagedにしていました&lt;/p&gt;
+&lt;p&gt;が、上の例にもあるけど、&lt;code&gt;git restore&lt;/code&gt;を使えというサジェストが出ています
+そもそも気がついたときのログにはadd/rmのサジェストも出ています&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Changes not staged for commit:
+  (use &amp;#34;git add/rm &amp;lt;file&amp;gt;...&amp;#34; to update what will be committed)
+  (use &amp;#34;git restore &amp;lt;file&amp;gt;...&amp;#34; to discard changes in working directory)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git add/rm&lt;/code&gt;: commitされた内容を更新する&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git restore&lt;/code&gt;: working directoryの内容を破棄する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;という違いがあるようです
+今回のように間違ってaddしてしまった場合は、&lt;code&gt;git restore&lt;/code&gt;の方が正しそうです。
+試してみます。&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>もともとJavaプロジェクトでKotlinをインポートさせたい</title>
       <link>https://myoan.github.io/posts/kotlin-gradle-import/</link>
       <pubDate>Fri, 08 Jan 2021 20:48:37 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/kotlin-gradle-import/</guid>
-      <description>やりたいこと JavaのプロジェクトにKotlinを入れたい
-発生した状況 build.gradleの差分
-diff --git a/build.gradle b/build.gradle index xxxxxxxxxx..xxxxxxxx --- a/build.gradle +++ b/build.gradle @@ -6,6 +6,7 @@ plugins {  id &amp;#39;...&amp;#39; id &amp;#39;...&amp;#39; id &amp;#39;...&amp;#39; + id &amp;#39;org.jetbrains.kotlin.jvm&amp;#39; version &amp;#39;1.4.10&amp;#39;  } + +compileKotlin { + kotlinOptions.jvmTarget = &amp;#39;1.8&amp;#39; +} エラー (正確にはSuccessを返しているが、buildで失敗する)
-&amp;gt; Task :prepareKotlinBuildScriptModel UP-TO-DATE &amp;lt;ij_msg_gr&amp;gt;JEE project import errors&amp;lt;ij_msg_gr&amp;gt;&amp;lt;ij_nav&amp;gt;/path/to/project/build.gradle&amp;lt;ij_nav&amp;gt;&amp;lt;i&amp;gt;&amp;lt;b&amp;gt;root project &#39;example&#39;: Web Facets/Artifacts will not be configured properly&amp;lt;/b&amp;gt;&amp;lt;eol&amp;gt;Details: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfiguration$ArtifactResolveException: Could not resolve all files for configuration &#39;:runtimeClasspath&#39;.&amp;lt;eol&amp;gt;Caused by: org.</description>
+      <description>&lt;h1 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h1&gt;
+&lt;p&gt;JavaのプロジェクトにKotlinを入れたい&lt;/p&gt;
+&lt;h1 id=&#34;発生した状況&#34;&gt;発生した状況&lt;/h1&gt;
+&lt;p&gt;build.gradleの差分&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;diff --git a/build.gradle b/build.gradle
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;index xxxxxxxxxx..xxxxxxxx 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;--- a/build.gradle
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+++ b/build.gradle
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;@@ -6,6 +6,7 @@ plugins {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     id &amp;#39;...&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     id &amp;#39;...&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     id &amp;#39;...&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+    id &amp;#39;org.jetbrains.kotlin.jvm&amp;#39; version &amp;#39;1.4.10&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+compileKotlin {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+    kotlinOptions.jvmTarget = &amp;#39;1.8&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;エラー
+(正確にはSuccessを返しているが、buildで失敗する)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; Task :prepareKotlinBuildScriptModel UP-TO-DATE
+&amp;lt;ij_msg_gr&amp;gt;JEE project import errors&amp;lt;ij_msg_gr&amp;gt;&amp;lt;ij_nav&amp;gt;/path/to/project/build.gradle&amp;lt;ij_nav&amp;gt;&amp;lt;i&amp;gt;&amp;lt;b&amp;gt;root project &amp;#39;example&amp;#39;: Web Facets/Artifacts will not be configured properly&amp;lt;/b&amp;gt;&amp;lt;eol&amp;gt;Details: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfiguration$ArtifactResolveException: Could not resolve all files for configuration &amp;#39;:runtimeClasspath&amp;#39;.&amp;lt;eol&amp;gt;Caused by: org.gradle.internal.locking.LockOutOfDateException: Resolved &amp;#39;org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10&amp;#39; which is not part of the dependency lock state&amp;lt;/i&amp;gt;
+Could not resolve: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10
+Could not resolve: org.jetbrains.kotlin:kotlin-stdlib:1.4.10
+Could not resolve: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10
+Could not resolve: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.10
+Could not resolve: org.jetbrains:annotations:13.0
+KotlinDslScriptsParameter(correlationId=176802187286571, scriptFiles=[]) =&amp;gt; StandardKotlinDslScriptsModel(scripts=[], commonModel=CommonKotlinDslScriptModel(classPath=[], sourcePath=[], implicitImports=[]), dehydratedScriptModels={}) - took 0.0 secs
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Use &amp;#39;--warning-mode all&amp;#39; to show the individual deprecation warnings.
+See https://docs.gradle.org/6.0.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 1s
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;エラーの意味がよくわからずドハマリ&amp;hellip;(Facets??, Artifacts??)&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ブログのテーマが決まらない</title>
       <link>https://myoan.github.io/posts/my-first-post/</link>
       <pubDate>Fri, 01 Jan 2021 14:10:18 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/my-first-post/</guid>
-      <description>hugoを始めた ブログにあうテーマをここから探しているがいいのが見つからない
-だんだんと発散してきたので、シンプルで素敵なnoteworthyを使わさせていただきます
-ここではどんなテーマが良いかを整理する
-必須  シンプル twitter, githubのリンクがある トップページに記事の一覧がある 画像をアップロードしやすい syntax highlightがついている  あると嬉しい  cssのカスタムが容易 目次やtagページを自動生成してくれる  毎年ブログ作っているけれど今年は続くのか&amp;hellip;</description>
+      <description>&lt;h1 id=&#34;hugoを始めた&#34;&gt;hugoを始めた&lt;/h1&gt;
+&lt;p&gt;ブログにあうテーマを&lt;a href=&#34;https://themes.gohugo.io/tags/blog/&#34;&gt;ここ&lt;/a&gt;から探しているがいいのが見つからない&lt;/p&gt;
+&lt;p&gt;だんだんと発散してきたので、シンプルで素敵な&lt;a href=&#34;https://themes.gohugo.io/hugo-theme-noteworthy/&#34;&gt;noteworthy&lt;/a&gt;を使わさせていただきます&lt;/p&gt;
+&lt;p&gt;ここではどんなテーマが良いかを整理する&lt;/p&gt;
+&lt;h2 id=&#34;必須&#34;&gt;必須&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;シンプル&lt;/li&gt;
+&lt;li&gt;twitter, githubのリンクがある&lt;/li&gt;
+&lt;li&gt;トップページに記事の一覧がある&lt;/li&gt;
+&lt;li&gt;画像をアップロードしやすい&lt;/li&gt;
+&lt;li&gt;syntax highlightがついている&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;あると嬉しい&#34;&gt;あると嬉しい&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;cssのカスタムが容易&lt;/li&gt;
+&lt;li&gt;目次やtagページを自動生成してくれる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;毎年ブログ作っているけれど今年は続くのか&amp;hellip;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

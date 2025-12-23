@@ -1,24 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>linux on yoan.log</title>
+    <title>Linux on yoan.log</title>
     <link>https://myoan.github.io/tags/linux/</link>
-    <description>Recent content in linux on yoan.log</description>
+    <description>Recent content in Linux on yoan.log</description>
     <image>
+      <title>yoan.log</title>
       <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 11 Dec 2021 18:04:58 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.153.1</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 Dec 2021 18:04:58 +0900</lastBuildDate>
+    <atom:link href="https://myoan.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>coreutilsのソースコードをDLする方法</title>
       <link>https://myoan.github.io/posts/read-coreutils/</link>
       <pubDate>Sat, 11 Dec 2021 18:04:58 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/read-coreutils/</guid>
-      <description>aspのinstall $ sudo pacman asp aspの簡単な使い方 # packageの一覧 $ asp list-all # packageの取得 $ asp checkout coreutils coreutilsのダウンロード $ asp checokut coreutils $ cd coreutils $ makepkg -o # buildはせずDLだけするオプション 詰まったところ GPGキーがverifiyされない makepkgの実行中で下記のようなエラーが発生した
- -&amp;gt; Found 01-fix-fs72253.patch ==&amp;gt; Validating source files with sha256sums... coreutils-9.0.tar.xz ... Passed coreutils-9.0.tar.xz.sig ... Skipped 01-fix-fs72253.patch ... Passed ==&amp;gt; Verifying source file signatures with gpg... coreutils-9.0.tar.xz ... FAILED (unknown public key DF6FD971306037D9) ==&amp;gt; ERROR: One or more PGP signatures could not be verified!</description>
+      <description>&lt;h1 id=&#34;aspのinstall&#34;&gt;aspのinstall&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo pacman asp
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;aspの簡単な使い方&#34;&gt;aspの簡単な使い方&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# packageの一覧
+$ asp list-all
+# packageの取得
+$ asp checkout coreutils
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;coreutilsのダウンロード&#34;&gt;coreutilsのダウンロード&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ asp checokut coreutils
+$ cd coreutils
+$ makepkg -o # buildはせずDLだけするオプション
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;詰まったところ&#34;&gt;詰まったところ&lt;/h1&gt;
+&lt;h2 id=&#34;gpgキーがverifiyされない&#34;&gt;GPGキーがverifiyされない&lt;/h2&gt;
+&lt;p&gt;makepkgの実行中で下記のようなエラーが発生した&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  -&amp;gt; Found 01-fix-fs72253.patch                                          
+==&amp;gt; Validating source files with sha256sums...                           
+    coreutils-9.0.tar.xz ... Passed                                      
+    coreutils-9.0.tar.xz.sig ... Skipped                                 
+    01-fix-fs72253.patch ... Passed                                      
+==&amp;gt; Verifying source file signatures with gpg...                         
+    coreutils-9.0.tar.xz ... FAILED (unknown public key DF6FD971306037D9)
+==&amp;gt; ERROR: One or more PGP signatures could not be verified!             
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;https://lists.gnu.org/archive/html/info-gnu/2021-09/msg00010.html&#34;&gt;GNUのページ&lt;/a&gt;に書いてあるコマンドを実行する&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

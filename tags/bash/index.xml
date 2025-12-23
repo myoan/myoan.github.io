@@ -1,31 +1,64 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>bash on yoan.log</title>
+    <title>Bash on yoan.log</title>
     <link>https://myoan.github.io/tags/bash/</link>
-    <description>Recent content in bash on yoan.log</description>
+    <description>Recent content in Bash on yoan.log</description>
     <image>
+      <title>yoan.log</title>
       <url>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://myoan.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 06 Feb 2021 16:25:03 +0900</lastBuildDate><atom:link href="https://myoan.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.153.1</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 06 Feb 2021 16:25:03 +0900</lastBuildDate>
+    <atom:link href="https://myoan.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go getで取得したコマンドの名前を変更する</title>
       <link>https://myoan.github.io/posts/duplicate-command/</link>
       <pubDate>Sat, 06 Feb 2021 16:25:03 +0900</pubDate>
-      
       <guid>https://myoan.github.io/posts/duplicate-command/</guid>
-      <description>yeomanを入れて実行したところエラー
-❯ yo code must specify 3 arguments 確認したところspannerのgeneratorであるyoがすでに入っていました&amp;hellip;
-❯ yo help yo is a command-line tool to generate Go code for Google Cloud Spanner. (混乱を避けるため、以降ではコードブロック以外yoはspannerのコードジェネレートツールを指します)
-両方利用したかったのでspanner generatorのyoを別名に書き換える方針で決めました。 その名もgoyoです(ババーン)
-本題 ではどうやったらgo getで取得したコマンド名を変えられるのか？
-go getのオプションを探しましたがありませんでした
-そこで仕方なくyoの名前自体を変更します
-yoはバイナリが入っていると思ったらシェルスクリプトでした (goenvを使っているとそうなる？)
-❯ file ~/.anyenv/envs/goenv/shims/yo /Users/motoki.yoan/.anyenv/envs/goenv/shims/yo: Bourne-Again shell script text executable, ASCII text ❯ cat ~/.anyenv/envs/goenv/shims/yo #!/usr/bin/env bash set -e [ -n &amp;#34;$GOENV_DEBUG&amp;#34; ] &amp;amp;&amp;amp; set -x program=&amp;#34;${0##*/}&amp;#34; if [[ &amp;#34;$program&amp;#34; = &amp;#34;go&amp;#34;* ]]; then for arg; do case &amp;#34;$arg&amp;#34; in -c* | -- ) break ;; */* ) if [ -f &amp;#34;$arg&amp;#34; ]; then export GOENV_FILE_ARG=&amp;#34;$arg&amp;#34; break fi ;; esac done fi export GOENV_ROOT=&amp;#34;/Users/me/.</description>
+      <description>&lt;p&gt;yeomanを入れて実行したところエラー&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ yo code
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;must specify &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; arguments
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;確認したところspannerのgeneratorである&lt;a href=&#34;https://github.com/cloudspannerecosystem/yo&#34;&gt;yo&lt;/a&gt;がすでに入っていました&amp;hellip;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ yo help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yo is a command-line tool to generate Go code &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; Google Cloud Spanner.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(混乱を避けるため、以降ではコードブロック以外yoはspannerのコードジェネレートツールを指します)&lt;/p&gt;
+&lt;p&gt;両方利用したかったのでspanner generatorの&lt;code&gt;yo&lt;/code&gt;を別名に書き換える方針で決めました。
+その名も&lt;code&gt;goyo&lt;/code&gt;です(ババーン)&lt;/p&gt;
+&lt;h1 id=&#34;本題&#34;&gt;本題&lt;/h1&gt;
+&lt;p&gt;ではどうやったら&lt;code&gt;go get&lt;/code&gt;で取得したコマンド名を変えられるのか？&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://golang.org/cmd/go/#hdr-Add_dependencies_to_current_module_and_install_them&#34;&gt;go get&lt;/a&gt;のオプションを探しましたがありませんでした&lt;/p&gt;
+&lt;p&gt;そこで仕方なく&lt;code&gt;yo&lt;/code&gt;の名前自体を変更します&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yo&lt;/code&gt;はバイナリが入っていると思ったらシェルスクリプトでした
+(goenvを使っているとそうなる？)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ file ~/.anyenv/envs/goenv/shims/yo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/motoki.yoan/.anyenv/envs/goenv/shims/yo: Bourne-Again shell script text executable, ASCII text
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ cat ~/.anyenv/envs/goenv/shims/yo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set -e
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -n &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$GOENV_DEBUG&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; set -x
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;program&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;0##*/&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$program&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;go&amp;#34;&lt;/span&gt;* &lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; arg; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$arg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -c* | -- &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; break ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    */* &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -f &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$arg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        export GOENV_FILE_ARG&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$arg&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        break
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export GOENV_ROOT&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Users/me/.anyenv/envs/goenv&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;exec &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Users/me/.anyenv/envs/goenv/libexec/goenv&amp;#34;&lt;/span&gt; exec &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$program&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$@&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;program&lt;/code&gt;が&lt;code&gt;yo&lt;/code&gt;を表しているように見えますが、&lt;code&gt;##*/&lt;/code&gt;が意味不明です&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
