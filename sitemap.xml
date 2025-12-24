@@ -2,13 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://myoan.github.io/posts/git-submodule-update/</loc>
-    <lastmod>2023-03-23T19:43:32+09:00</lastmod>
+    <loc>https://myoan.github.io/posts/omomuki/</loc>
+    <lastmod>2025-12-24T09:03:32+09:00</lastmod>
   </url><url>
     <loc>https://myoan.github.io/posts/</loc>
-    <lastmod>2023-03-23T19:43:32+09:00</lastmod>
+    <lastmod>2025-12-24T09:03:32+09:00</lastmod>
+  </url><url>
+    <loc>https://myoan.github.io/tags/</loc>
+    <lastmod>2025-12-24T09:03:32+09:00</lastmod>
   </url><url>
     <loc>https://myoan.github.io/</loc>
+    <lastmod>2025-12-24T09:03:32+09:00</lastmod>
+  </url><url>
+    <loc>https://myoan.github.io/tags/%E3%81%8A%E6%B0%97%E6%8C%81%E3%81%A1/</loc>
+    <lastmod>2025-12-24T09:03:32+09:00</lastmod>
+  </url><url>
+    <loc>https://myoan.github.io/posts/git-submodule-update/</loc>
     <lastmod>2023-03-23T19:43:32+09:00</lastmod>
   </url><url>
     <loc>https://myoan.github.io/posts/ansible/</loc>
@@ -21,9 +30,6 @@
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
   </url><url>
     <loc>https://myoan.github.io/tags/short/</loc>
-    <lastmod>2022-07-12T02:56:03+09:00</lastmod>
-  </url><url>
-    <loc>https://myoan.github.io/tags/</loc>
     <lastmod>2022-07-12T02:56:03+09:00</lastmod>
   </url><url>
     <loc>https://myoan.github.io/posts/journalctl/</loc>
